@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides - Style 2</title>
+<link rel="stylesheet" href="CSS/Gentle.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+box-sizing:border-box;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(#FBD2DA,#FF99AD);}
+
+:root {
+--ia:100vw;
+--ib:360px;
+--ic:1200px;}
+
+.container {
+position:absolute;
+width:100vw;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow-x:hidden;}
+
+.wrapper {
+position:relative;
+width:calc(360px + 720px*(var(--ia) - var(--ib))/var(--ic));
+height:calc(250px + 500px*(var(--ia) - var(--ib))/var(--ic));
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.carousel {
+width:100%;
+height:calc(200px + 400px*(var(--ia) - var(--ib))/var(--ic));
+padding:0 calc(6px + 12px*(var(--ia) - var(--ib))/var(--ic));
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:nowrap;
+gap:calc(6px + 6px*(var(--ia) - var(--ib))/var(--ic));}
+
+.card {
+position:relative;
+height:100%;
+--i1:70%;
+--i2:18%;
+--i3:12%;
+--i4:58%;
+--i5:52%;
+--i6:6%;
+position:relative;
+height:100%;
+list-style:none;
+border-radius:calc(10px + 20px*(var(--ia) - var(--ib))/var(--ic));
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+pointer-events:auto;
+background:url("Flowers/card.png");
+background-size:cover;
+background-position:center;
+box-shadow:0 calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)) calc(15px + 30px*(var(--ia) - var(--ib))/var(--ic)) rgba(128,0,43,0.3);}
+
+.card .image {
+position:absolute;
+width:auto;
+height:75%;
+object-fit:cover;
+transform:translateX(0);
+filter:drop-shadow(0 calc(2px + 4px*(var(--ia) - var(--ib))/var(--ic)) calc(3px + 6px*(var(--ia) - var(--ib))/var(--ic)) rgba(0,0,0,0.2));}
+
+.card.active .image {
+transform:translateX(calc(-70px - 140px*(var(--ia) - var(--ib))/var(--ic)));}
+
+.card .details {
+position:absolute;
+right:0;
+width:calc(140px + 280px*(var(--ia) - var(--ib))/var(--ic));
+height:100%;
+padding:calc(45px + 90px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic));
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:calc(8px + 16px*(var(--ia) - var(--ib))/var(--ic));
+opacity:0;
+transition:0.2s;}
+
+.card h1 {
+position:relative;
+opacity:0;
+color:#57001A;
+font-size:calc(1.2rem + 2.4rem*(var(--ia) - var(--ib))/var(--ic));
+font-weight:800;
+transition:0.3s;
+text-align:center;
+transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));
+font-family: "Cormorant Garamond", serif;}
+
+.card h2 {
+position:relative;
+opacity:0;
+color:#FF85A9;
+font-size:calc(0.9rem + 1.8rem*(var(--ia) - var(--ib))/var(--ic));
+font-weight:1000;
+text-align:center;
+transition:0.3s;
+transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));
+font-family: "Tangerine", cursive;}
+
+.card .decoration {
+position:relative;
+width:calc(95px + 190px*(var(--ia) - var(--ib))/var(--ic));
+height:calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic));
+opacity:0;
+transition:0.3s;
+transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));}
+
+.card p, .card .badge span {
+position:relative;
+color:#57001A;
+font-size:calc(0.6rem + 1.2rem*(var(--ia) - var(--ib))/var(--ic));
+font-weight:800;
+transition:0.3s;
+font-family: "Cormorant Garamond", serif;}
+
+.card p {
+opacity:0;
+line-height:calc(14px + 28px*(var(--ia) - var(--ib))/var(--ic));
+transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));}
+
+.card .price {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(25px + 50px*(var(--ia) - var(--ib))/var(--ic));}
+
+.card .button-container {
+position:relative;
+display:flex;
+opacity:0;
+transform:scale(0.8);}
+
+.card button {
+position:relative;
+padding:calc(6px + 12px*(var(--ia) - var(--ib))/var(--ic)) calc(16px + 32px*(var(--ia) - var(--ib))/var(--ic));
+border-radius:calc(30px + 60px*(var(--ia) - var(--ib))/var(--ic));
+display:flex;
+border:none;
+transition:0.3s;
+background:#fff;
+cursor:pointer;
+pointer-events:auto;
+box-shadow:0 calc(2px + 4px*(var(--ia) - var(--ib))/var(--ic)) calc(3px + 6px*(var(--ia) - var(--ib))/var(--ic)) rgba(255,133,169,0.5);}
+
+.card button:active {
+transform:scale(0.85);}
+
+.card button img {
+position:relative;
+width:calc(14px + 28px*(var(--ia) - var(--ib))/var(--ic));
+height:calc(14px + 28px*(var(--ia) - var(--ib))/var(--ic));}
+
+.card h3 {
+opacity:0;
+color:#FF85A9;
+font-size:calc(1.5rem + 3rem*(var(--ia) - var(--ib))/var(--ic));
+font-weight:800;
+transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));
+font-family: "Cormorant Garamond", serif;}
+
+.card .badge {
+position:absolute;
+top:calc(10px + 20px*(var(--ia) - var(--ib))/var(--ic));
+right:calc(10px + 20px*(var(--ia) - var(--ib))/var(--ic));
+padding:calc(3px + 6px*(var(--ia) - var(--ib))/var(--ic)) calc(6px + 12px*(var(--ia) - var(--ib))/var(--ic));
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(3px + 6px*(var(--ia) - var(--ib))/var(--ic));
+opacity:0;
+border-radius:calc(30px + 60px*(var(--ia) - var(--ib))/var(--ic));
+transform:scale(0.8);
+background:rgba(255,133,169,0.2);
+box-shadow:0 calc(2px + 4px*(var(--ia) - var(--ib))/var(--ic)) calc(3px + 6px*(var(--ia) - var(--ib))/var(--ic)) rgba(255,133,169,0.4);}
+
+.card .badge img {
+position:relative;
+width:calc(8px + 16px*(var(--ia) - var(--ib))/var(--ic));
+height:calc(8px + 16px*(var(--ia) - var(--ib))/var(--ic));}
+
+.card.active {
+pointer-events:none;}
+
+.card.active .details {
+opacity:1;}
+
+.card.active h1, .card.active h2 {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 0.3s;}
+
+.card.active .decoration, .card.active p {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 0.4s;}
+
+.card.active h3 {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 0.5s;}
+
+.card.active .button-container {
+animation:PopUp 0.5s 0.6s forwards;}
+
+.card.active .badge {
+animation:PopUp 0.5s 0.7s forwards;}
+
+@keyframes PopUp {
+0%{transform:scale(0.8);opacity:0;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<section class="wrapper">
+
+<ul class="carousel"></ul> 
+
+</section>
+
+</div>
+
+<script src="JS/Slides2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Slider</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Sans-serif;
+user-select:none;
+transition:0.3s;}
+
+body {
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:1200px;}
+
+img {
+pointer-events:none;}
+
+.Wrapper {
+position:absolute;
+width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;}
+
+.Wrapper.state1 {
+height:100vh;}
+
+.Wrapper.state2 {
+top:0;
+height:calc(400px + 400px*(var(--i1) - var(--i2))/var(--i3));}
+
+.container {
+position:relative;
+width:100%;
+height:calc(400px + 400px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.slider {
+position:absolute;
+width:calc(300px + 300px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(300px + 300px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+justify-content:center;
+align-items:center;
+list-style:none;}
+
+.slide {
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:calc(12px + 12px*(var(--i1) - var(--i2))/var(--i3));
+background:var(--gradient);
+transition:all 0.5s, z-index 0s 0.1s;
+outline:calc(1px + 1px*(var(--i1) - var(--i2))/var(--i3)) solid rgba(255,255,255,0.3);
+box-shadow:0 calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3)) calc(20px + 20px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.slide:nth-child(1) {
+z-index:0;
+filter:brightness(40%);
+transform:translateX(0) scale(0.4);}
+
+.slide:nth-child(2) {
+z-index:1;
+filter:brightness(60%);
+transform:translateX(calc(-140px - 140px*(var(--i1) - var(--i2))/var(--i3))) scale(0.6);}
+
+.slide:nth-child(3) {
+z-index:2;
+filter:brightness(80%);
+transform:translateX(calc(-70px - 70px*(var(--i1) - var(--i2))/var(--i3))) scale(0.8);}
+
+.slide:nth-child(4) {
+z-index:3;
+filter:brightness(100%);
+transform:translateX(0) scale(1);}
+
+.slide:nth-child(5) {
+z-index:2;
+filter:brightness(80%);
+transform:translateX(calc(70px + 70px*(var(--i1) - var(--i2))/var(--i3))) scale(0.8);}
+
+.slide:nth-child(6) {
+z-index:1;
+filter:brightness(60%);
+transform:translateX(calc(140px + 140px*(var(--i1) - var(--i2))/var(--i3))) scale(0.6);}
+
+.slide:nth-child(n+7) {
+z-index:0;
+filter:brightness(40%);
+transform:translateX(0) scale(0.4);}
+
+.image {
+position:absolute;
+top:calc(20px + 20px*(var(--i1) - var(--i2))/var(--i3));
+width:calc(150px + 150px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(150px + 150px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.image img {
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+object-fit:cover;}
+
+.image .shadow {
+position:absolute;
+bottom:10%;
+width:calc(140px + 140px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(20px + 20px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:50%;
+filter:blur(calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3)));
+background:rgba(0,0,0,0.2);}
+
+.image.adidas .shadow {
+bottom:10%;
+background:rgba(0,0,0,0.3);}
+
+.image.nike .shadow {
+bottom:-10%;}
+
+.image.puma .shadow {
+bottom:0%;
+background:rgba(0,0,0,0.2);}
+
+.info {
+position:absolute;
+bottom:0;
+width:100%;
+gap:calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3));
+padding:calc(20px + 20px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+flex-direction:column;}
+
+.details {
+position:relative;
+width:100%;
+display:flex;}
+
+.details .description, .details .price {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:calc(5px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.details .description {
+align-items:start;}
+
+.details .price {
+align-items:end;
+margin-left:auto;}
+
+.details .price h1 {
+position:relative;
+color:#fff;
+font-size:calc(1.1rem + 1.1rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:600;
+text-shadow:0 calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) calc(4px + 4px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.details .price h2 {
+position:relative;
+color:#CACACA;
+font-size:calc(0.7rem + 0.7rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:500;
+text-decoration:line-through;}
+
+.details .description h3 {
+position:relative;
+color:#fff;
+font-size:calc(0.9rem + 0.9rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:600;
+text-shadow:0 calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) calc(4px + 4px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.details .description span {
+position:relative;
+color:#fff;
+font-size:calc(0.7rem + 0.7rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:300;
+text-shadow:0 calc(1px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.size {
+position:relative;
+width:100%;
+display:flex;}
+
+.size-container {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3));}
+
+.line {
+position:relative;
+width:100%;
+height:calc(0.1px + 0.1px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:1px;
+background:rgba(255,255,255,0.3);}
+
+.size-container span {
+position:relative;
+color:#fff;
+font-size:calc(0.5rem + 0.5rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:500;}
+
+.size-container ul {
+position:relative;
+display:flex;
+gap:calc(5px + 5px*(var(--i1) - var(--i2))/var(--i3));
+list-style:none;}
+
+.size-container ul li {
+position:relative;
+display:flex;
+padding:calc(6px + 6px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3));
+color:#fff;
+font-size:calc(0.6rem + 0.6rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:1000;
+transition:0.3s;
+pointer-events:auto;
+cursor:pointer;
+background:rgba(255,255,255,0.1);}
+
+.size-container ul li.active {
+pointer-events:none;
+color:var(--color);
+background:#fff;
+box-shadow:0 calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) calc(3px + 3px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.2);}
+
+.size .button-container {
+position:relative;
+display:flex;
+align-self:end;
+margin-left:auto;
+opacity:0;
+transform:scale(0.8);}
+
+.size button {
+position:relative;
+display:flex;
+padding:calc(6px + 6px*(var(--i1) - var(--i2))/var(--i3)) calc(18px + 18px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(30px + 30px*(var(--i1) - var(--i2))/var(--i3));
+border:none;
+cursor:pointer;
+background:#fff;
+transition:0.3s;
+box-shadow:0 calc(3px + 3px*(var(--i1) - var(--i2))/var(--i3)) calc(5px + 5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.size button svg {
+width:calc(16px + 16px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(16px + 16px*(var(--i1) - var(--i2))/var(--i3));}
+
+.off {
+position:absolute;
+top:calc(-12px - 12px*(var(--i1) - var(--i2))/var(--i3));
+right:calc(20px + 20px*(var(--i1) - var(--i2))/var(--i3));
+width:calc(60px + 60px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(60px + 60px*(var(--i1) - var(--i2))/var(--i3));
+opacity:0;
+transform:scale(0.6);
+filter:drop-shadow(0 calc(3px + 3px*(var(--i1) - var(--i2))/var(--i3)) calc(3px + 3px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3));}
+
+.logo {
+position:absolute;
+top:calc(15px + 15px*(var(--i1) - var(--i2))/var(--i3));
+left:calc(15px + 15px*(var(--i1) - var(--i2))/var(--i3));
+width:calc(40px + 40px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(40px + 40px*(var(--i1) - var(--i2))/var(--i3));
+filter:drop-shadow(0 calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) calc(2px + 2px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.2));}
+
+.arrows {
+position:absolute;
+width:calc(345px + 345px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(45px + 45px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+gap:calc(255px + 255px*(var(--i1) - var(--i2))/var(--i3));
+z-index:1000;}
+
+.arrows img {
+width:calc(45px + 45px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(45px + 45px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:50%;
+cursor:pointer;
+transition:0.3s;
+pointer-events:auto;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.5);
+box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+
+.arrows img:active, .size ul li:active, .size button:active {
+transform:scale(0.85);}
+
+.slide:nth-child(4) .off {
+animation:PopUp 0.5s 0.5s forwards;}
+
+.slide:nth-child(4) .size .button-container {
+animation:PopUp 0.5s 0.8s forwards;}
+
+@keyframes PopUp {
+0%{transform:scale(0.6);opacity:1;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+@media screen and (max-width:800px) {
+
+body {
+background-image:url(Shoes/Pattern1.svg);}
+
+}
+
+@media screen and (min-width:800px) and (max-width:1600px) {
+
+body {
+background-image:url(Shoes/Pattern2.svg);}
+
+}
+
+@media screen and (min-width:1600px) {
+
+body {
+background-image:url(Shoes/Pattern3.svg);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="Wrapper">
+
+<div class="container">
+
+<ul class="slider"></ul>
+
+<section class="arrows">
+
+<img class="left" src="Shoes/left-arrow.svg">
+<img class="right" src="Shoes/right-arrow.svg">
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Slider.js"></script>
+
+</body>
+
+</html>

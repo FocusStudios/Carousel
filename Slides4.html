@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="SVG/Focus.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Slides - Style 4</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+user-select:none;
+box-sizing:border-box;
+font-family: "Cormorant Garamond", serif;}
+
+body {
+display:flex;
+align-items:center;
+justify-content:center;
+overflow-x:hidden;
+min-height:100vh;
+background:#FFE1C7;}
+
+.shelf-container {
+position:absolute;
+top:0;
+width:100vw;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;}
+
+.shelf-container.state1 {
+height:100vh;}
+
+.shelf-wrapper {
+position:relative;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.shelf1, .shelf2, .shelf3 {
+position:absolute;
+height:auto;
+object-fit:cover;
+filter:drop-shadow(0 10px 15px rgba(117,52,0,0.6));}
+
+.shelf2 {
+filter:drop-shadow(0 8px 15px rgba(117,52,0,0.5));}
+
+.shelf3 {
+filter:drop-shadow(0 3px 5px rgba(117,52,0,0.5));}
+
+.container {
+position:absolute;
+bottom:50px;
+width:100%;
+height:300px;
+display:flex;
+justify-content:center;
+align-items:center;
+pointer-events:none;}
+
+.wrapper {
+position:relative;
+height:500px;
+display:flex;
+justify-content:start;
+align-items:center;
+overflow-x:auto;
+overflow-y:hidden;
+pointer-events:none;
+transition:0.4s cubic-bezier(0.5,0,0.5,1);}
+
+.carousel {
+position:relative;
+padding:10px;
+display:flex;
+align-items:end;
+justify-content:center;
+gap:10px;
+flex-wrap:nowrap;
+list-style:none;}
+
+.wrapper::-webkit-scrollbar, .carousel::-webkit-scrollbar {
+display:none;}
+
+.card {
+position:relative;
+width:60px;
+height:200px;
+border-radius:5px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:auto;
+cursor:pointer;
+box-shadow:0 3px 5px rgba(0,0,0,0.5);
+transition:0.4s cubic-bezier(0.5,0,0.5,1);
+background:linear-gradient(var(--i) 60%, #000 100%);}
+
+.card:nth-child(2), .card:nth-child(4) {
+height:250px;}
+
+.card:nth-child(3) {
+height:300px;}
+
+.card .details-container {
+position:absolute;
+width:100%;
+height:220px;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card .book {
+position:absolute;
+left:0;
+width:150px;
+height:90%;
+object-fit:cover;
+opacity:0;
+transform:translateY(20px);
+filter:drop-shadow(-1px 1px 4px rgba(255,255,255,0.3));}
+
+.card .details {
+position:absolute;
+right:0;
+width:150px;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
+opacity:0;}
+
+.card h1 {
+position:absolute;
+top:60px;
+opacity:1;
+color:#FDEABC;
+font-weight:600;
+font-size:0.85rem;
+letter-spacing:5px;
+transition:0.4s;
+height:calc(100% - 90px);
+padding-top:5px;
+display:flex;
+align-items:center;
+justify-content:center;
+align-self:start;
+writing-mode:vertical-lr;
+text-orientation:upright;
+text-shadow:2px 2px 2px rgba(0,0,0,0.7);}
+
+.card .line {
+position:relative;
+width:30%;
+height:0.5px;
+display:flex;
+align-self:start;
+border-radius:1px;
+background:#fff;
+box-shadow:0 1px 2px rgba(0,0,0,0.5);}
+
+.card h2, .card h3 {
+position:relative;
+color:#fff;
+display:flex;
+align-self:start;
+font-weight:500;
+font-size:0.9rem;
+text-shadow:2px 2px 2px rgba(0,0,0,0.5);}
+
+.card h3 {
+font-size:0.7rem;}
+
+.card p {
+position:relative;
+width:75%;
+display:flex;
+align-self:start;
+color:#fff;
+font-size:0.6rem;
+line-height:15px;}
+
+.card .button-container {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+align-self:start;
+margin-top:10px;
+opacity:0;
+transform:translateY(10px);}
+
+.card button {
+position:relative;
+padding:5px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:none;
+pointer-events:auto;
+cursor:pointer;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.5);}
+
+.card button span {
+position:relative;
+color:#fff;
+font-weight:300;
+font-size:0.6rem;
+padding-left:10px;}
+
+.card button .arrow {
+position:relative;
+width:15px;
+height:15px;
+border-radius:50%;
+background:rgba(255,255,255,0.1);}
+
+.card .icon {
+position:absolute;
+top:15px;
+width:30px;
+height:30px;
+opacity:1;
+border-radius:50%;
+background:rgba(255,255,255,0.05);
+border:0.5px solid rgba(255,255,255,0.4);}
+
+.card .decoration {
+position:absolute;
+bottom:5px;
+width:auto;
+height:20px;
+opacity:1;}
+
+.card.active {
+width:300px;
+cursor:default;}
+
+.card.active h1, .card.active .icon, .card.active .decoration {
+opacity:0;}
+
+.card.active .book {
+opacity:1;
+transform:translateY(0);
+transition:0.5s 0.3s;}
+
+.card.active .details {
+opacity:1;
+transition:0.4s 0.5s;}
+
+.card.active .button-container {
+opacity:1;
+transform:translateY(0);
+transition:0.5s 0.7s;;}
+
+.card.active button:active {
+transform:scale(0.85);}
+
+@media screen and (max-width:650px) {
+
+.shelf-container.state2  {
+height:calc(600px + 100px*(100vw - 360px)/290px);}
+
+.shelf-wrapper {
+height:calc(600px + 100px*(100vw - 360px)/290px);}
+
+.container {
+bottom:calc(60px + 30px*(100vw - 360px)/290px);}
+
+.shelf1 {
+bottom:calc(-143px - 105px*(100vw - 360px)/290px);
+width:calc(530px + 390px*(100vw - 360px)/290px);
+filter:drop-shadow(0 calc(10px + 5px*(100vw - 360px)/290px) calc(15px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.6));}
+
+.shelf2 {
+top:20px;
+right:calc(-30px - 20px*(100vw - 360px)/290px);
+width:calc(300px + 100px*(100vw - 360px)/290px);
+filter:drop-shadow(0 calc(8px + 4px*(100vw - 360px)/290px) calc(15px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.5));}
+
+.shelf3 {
+top:calc(-10px - 10px*(100vw - 360px)/290px);
+left:calc(-15px - 5px*(100vw - 360px)/290px);
+width:calc(150px + 80px*(100vw - 360px)/290px);
+filter:drop-shadow(0 calc(3px + 3px*(100vw - 360px)/290px) calc(5px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.5));}
+
+}
+
+@media screen and (min-width:650px) {
+
+.shelf1 {
+filter:drop-shadow(0 calc(10px + 5px*(100vw - 650px)/950px) calc(15px + 5px*(100vw - 650px)/950px) rgba(117,52,0,0.6));}
+
+.shelf2 {
+filter:drop-shadow(0 calc(8px + 4px*(100vw - 650px)/950px) calc(15px + 5px*(100vw - 650px)/950px) rgba(117,52,0,0.5));}
+
+.shelf3 {
+filter:drop-shadow(0 calc(3px + 2px*(100vw - 650px)/950px) calc(5px + 2px*(100vw - 650px)/950px) rgba(117,52,0,0.5));}
+
+.wrapper {
+height:calc(500px + 500px*(100vw - 650px)/950px);}
+
+.carousel {
+padding:calc(10px + 10px*(100vw - 650px)/950px);
+gap:calc(10px + 10px*(100vw - 650px)/950px);}
+
+.card {
+position:relative;
+width:calc(60px + 60px*(100vw - 650px)/950px);
+height:calc(200px + 200px*(100vw - 650px)/950px);
+border-radius:calc(5px + 5px*(100vw - 650px)/950px);
+box-shadow:0 calc(3px + 3px*(100vw - 650px)/950px) calc(5px + 5px*(100vw - 650px)/950px) rgba(0,0,0,0.5);}
+
+.card:nth-child(2), .card:nth-child(4) {
+height:calc(250px + 250px*(100vw - 650px)/950px);}
+
+.card:nth-child(3) {
+height:calc(300px + 300px*(100vw - 650px)/950px);}
+
+.card .details-container {
+height:calc(220px + 220px*(100vw - 650px)/950px);}
+
+.card .book {
+width:calc(150px + 150px*(100vw - 650px)/950px);
+transform:translateY(calc(20px + 20px*(100vw - 650px)/950px));
+filter:drop-shadow(calc(-1px - 1px*(100vw - 650px)/950px) calc(1px + 1px*(100vw - 650px)/950px) calc(4px + 4px*(100vw - 650px)/950px) rgba(255,255,255,0.3));}
+
+.card .details {
+width:calc(150px + 150px*(100vw - 650px)/950px);
+gap:calc(10px + 10px*(100vw - 650px)/950px);}
+
+.card h1 {
+top:calc(60px + 60px*(100vw - 650px)/950px);
+font-size:calc(0.85rem + 0.85rem*(100vw - 650px)/950px);
+letter-spacing:calc(5px + 5px*(100vw - 650px)/950px);
+height:calc(100% - (90px + 90px*(100vw - 650px)/950px));
+padding-top:calc(5px + 5px*(100vw - 650px)/950px);
+text-shadow:calc(2px + 2px*(100vw - 650px)/950px) calc(2px + 2px*(100vw - 650px)/950px) calc(2px + 2px*(100vw - 650px)/950px) rgba(0,0,0,0.7);}
+
+.card .line {
+height:calc(0.5px + 0.5px*(100vw - 650px)/950px);
+border-radius:calc(1px + 1px*(100vw - 650px)/950px);
+box-shadow:0 calc(1px + 1px*(100vw - 650px)/950px) calc(2px + 2px*(100vw - 650px)/950px) rgba(0,0,0,0.5);}
+
+.card h2, .card h3 {
+font-size:calc(0.9rem + 0.9rem*(100vw - 650px)/950px);
+text-shadow:calc(2px + 2px*(100vw - 650px)/950px) calc(2px + 2px*(100vw - 650px)/950px) calc(2px + 2px*(100vw - 650px)/950px) rgba(0,0,0,0.5);}
+
+.card h3 {
+font-size:calc(0.7rem + 0.7rem*(100vw - 650px)/950px);}
+
+.card p {
+font-size:calc(0.6rem + 0.6rem*(100vw - 650px)/950px);
+line-height:calc(15px + 15px*(100vw - 650px)/950px);}
+
+.card .button-container {
+margin-top:calc(10px + 10px*(100vw - 650px)/950px);
+transform:translateY(calc(10px + 10px*(100vw - 650px)/950px));}
+
+.card button {
+padding:calc(5px + 5px*(100vw - 650px)/950px);
+border-radius:calc(20px + 20px*(100vw - 650px)/950px);
+gap:calc(10px + 10px*(100vw - 650px)/950px);
+border:calc(1px + 1px*(100vw - 650px)/950px) solid rgba(255,255,255,0.5);}
+
+.card button span {
+font-size:calc(0.6rem + 0.6rem*(100vw - 650px)/950px);
+padding-left:calc(10px + 10px*(100vw - 650px)/950px);}
+
+.card button .arrow {
+position:relative;
+width:calc(15px + 15px*(100vw - 650px)/950px);
+height:calc(15px + 15px*(100vw - 650px)/950px);}
+
+.card .icon {
+top:calc(15px + 15px*(100vw - 650px)/950px);
+width:calc(30px + 30px*(100vw - 650px)/950px);
+height:calc(30px + 30px*(100vw - 650px)/950px);
+border:calc(0.5px + 0.5px*(100vw - 650px)/950px) solid rgba(255,255,255,0.4);}
+
+.card .decoration {
+bottom:calc(5px + 5px*(100vw - 650px)/950px);
+height:calc(20px + 20px*(100vw - 650px)/950px);}
+
+.card.active {
+width:calc(300px + 300px*(100vw - 650px)/950px);}
+
+}
+
+@media screen and (min-width:650px) and (max-width:1600px) {
+
+.shelf-container.state2 {
+height:calc(700px + 100px*(100vw - 650px)/950px);}
+
+.shelf-wrapper {
+height:calc(700px + 100px*(100vw - 650px)/950px);}
+
+.shelf1 {
+bottom:calc(-243px - 262px*(100vw - 650px)/950px);
+width:calc(900px + 870px*(100vw - 650px)/950px);}
+
+.shelf2 {
+top:calc(20px - 120px*(100vw - 650px)/950px);
+right:calc(-50px + 10px*(100vw - 650px)/950px);
+width:calc(400px + 120px*(100vw - 650px)/950px);}
+
+.shelf3 {
+top:calc(-20px - 10px*(100vw - 650px)/950px);
+left:calc(-20px - 10px*(100vw - 650px)/950px);
+width:calc(230px + 80px*(100vw - 650px)/950px);}
+
+.container {
+bottom:calc(90px + 30px*(100vw - 650px)/950px);
+height:calc(300px + 240px*(100vw - 650px)/950px);}
+
+}
+
+@media screen and (min-width:1600px) {
+
+.shelf-container.state2 {
+height:calc(1200px + 5000px*(100vw - 1600px)/7400px);}
+
+.shelf-wrapper {
+height:calc(1200px + 5000px*(100vw - 1600px)/7400px);}
+
+.shelf1 {
+bottom:calc(-243px - 264px*(100vw - 650px)/950px);
+width:calc(900px + 870px*(100vw - 650px)/950px);}
+
+.shelf2 {
+top:calc(-60px + 20px*(100vw - 650px)/950px);
+right:calc(-80px + 30px*(100vw - 650px)/950px);
+width:calc(400px + 380px*(100vw - 650px)/950px);}
+
+.shelf3 {
+top:calc(-20px + 20px*(100vw - 650px)/950px);
+left:calc(-20px + 30px*(100vw - 650px)/950px);
+width:calc(180px + 200px*(100vw - 650px)/950px);}
+
+.container {
+bottom:calc(100px + 100px*(100vw - 650px)/950px);
+height:calc(300px + 240px*(100vw - 650px)/950px);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="shelf-container">
+
+<div class="shelf-wrapper">
+
+<img class="shelf2" src="Books/Shelf2.png">
+<img class="shelf3" src="Books/Shelf3.png">
+
+<section class="container">
+
+<img class="shelf1" src="Books/Shelf1.png">
+
+<div class="wrapper">
+
+<ul class="carousel"></ul>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Slides4.js"></script>
+
+</body>
+
+</html>

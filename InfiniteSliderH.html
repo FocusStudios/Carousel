@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Infinite Slider</title>
+
+<style>
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;}
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:1200px;
+--num:10;
+--width:calc(100px + 100px*(var(--i1) - var(--i2))/var(--i3));
+--height:calc(140px + 140px*(var(--i1) - var(--i2))/var(--i3));
+--gap:calc(15px + 15px*(var(--i1) - var(--i2))/var(--i3));
+--X:calc(var(--num) * (var(--width) + var(--gap))/2);}
+
+body {
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+background:linear-gradient(to bottom right, #200075, #000);}
+
+.main-container {
+position:absolute;
+width:100vw;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+user-select:none;}
+
+.wrapper {
+position:absolute;
+top:calc(-var(--width)/2);
+padding:calc(var(--gap)/2) 0;
+transform:rotate(-30deg) skewX(30deg);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;}
+
+.carousel {
+position:relative;
+list-style:none;
+display:flex;
+align-items:center;
+gap:var(--gap);
+padding:calc(var(--gap)/2) 0;}
+
+.right {
+transform:translateX(calc(-1*var(--X)));
+animation:move-ltr 8s linear infinite;}
+
+.left {
+transform:translateX(var(--X));
+animation:move-rtl 8s linear infinite;}
+
+.carousel .card {
+position:relative;
+width:var(--width);
+height:var(--height);
+border-radius:calc(8px + 8px*(var(--i1) - var(--i2))/var(--i3));
+transition:0.3s;
+overflow:hidden;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+background-image:var(--background);
+background-size:cover;
+background-position:center;
+border:calc(1px + 1px*(var(--i1) - var(--i2))/var(--i3)) solid rgba(255,255,255,0.5);
+box-shadow:calc(-1px - 1px*(var(--i1) - var(--i2))/var(--i3)) calc(4px + 4px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 10px*(var(--i1) - var(--i2))/var(--i3)) rgba(255,255,255,0.3);}
+
+.card:hover {
+transform:scale(1.1);}
+
+.card:active {
+transform:scale(0.9);}
+
+@keyframes move-ltr {
+from {transform:translateX(calc(-1*var(--X)));}
+to {transform:translateX(var(--X));}}
+
+@keyframes move-rtl {
+from {transform:translateX(var(--X));}
+to {transform:translateX(calc(-1*var(--X)));}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<section class="wrapper"></section>
+
+</div>
+
+<script src="JS/InfiniteSliderH.js"></script>
+
+</body>
+
+</html>

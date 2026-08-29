@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+<title>Slides - Style 3</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.5s;
+box-sizing:border-box;
+font-family:Sans-serif;
+user-select:none;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:0.3s;
+background:linear-gradient(to bottom , #FFEBD6, #FFDAB3);}
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:1200px;}
+
+.main-container {
+position:absolute;
+top:0;
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.container {
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.circle {
+position:absolute;
+border-radius:50%;
+opacity:0.7;
+pointer-events:none;
+box-shadow:-2px 2px 5px rgba(0,0,0,0.1);
+background:linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.4));}
+
+.circle:nth-child(1) {
+top:10px;
+left:20px;
+width:70px;
+height:70px;
+animation:bokeh1 12s ease-in-out infinite alternate;}
+
+.circle:nth-child(2) {
+top:50px;
+right:-20px;
+width:150px;
+height:150px;
+animation:bokeh2 12s ease-in-out infinite alternate;}
+
+.circle:nth-child(3) {
+bottom:20px;
+left:60px;
+width:180px;
+height:180px;
+animation:bokeh3 12s ease-in-out infinite alternate;}
+
+.wrapper {
+position:relative;
+width:100%;
+height:350px;
+display:flex;
+align-items:center;
+justify-content:start;
+overflow-x:auto;}
+
+.wrapper::-webkit-scrollbar {
+display:none;}
+
+.carousel {
+position:relative;
+height:250px;
+padding:0 10px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:nowrap;
+gap:10px;}
+
+.card {
+position:relative;
+width:100px;
+height:100%;
+list-style:none;
+border-radius:15px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:0.5s;
+pointer-events:auto;
+cursor:pointer;
+border:1px solid rgba(255,255,255,0.2);
+box-shadow:0 5px 10px rgba(179,68,6,0.2);}
+
+.card .image {
+position:absolute;
+right:0;
+width:300px;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+transform:translateX(15px);}
+
+.card .details {
+position:absolute;
+left:0;
+height:100%;
+padding:35px 25px;
+display:flex;
+flex-direction:column;
+gap:20px;
+opacity:0;
+transition:none;}
+
+.card .titles {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:8px;
+color:#492A08;}
+
+.card .titles h1 {
+position:relative;
+font-size:1.2rem;
+font-weight:1000;
+font-family:"Tenor Sans", sans-serif;}
+
+.card .titles h2 {
+position:relative;
+font-size:0.7rem;
+font-weight:400;}
+
+.card .titles .decoration {
+position:relative;
+width:70%;
+height:10px;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card .titles .sparkle {
+position:relative;
+width:10px;
+height:8px;
+filter:drop-shadow(0 0.5px 2px rgba(179,68,6,0.2));}
+
+.card .titles .line {
+position:relative;
+right:0;
+width:0%;
+margin-left:-2px;
+height:1px;
+border-radius:1px;
+display:flex;
+transition:none;
+box-shadow:0 0.5px 2px rgba(179,68,6,0.2);
+background:linear-gradient(to right,#FFD994,rgba(255,255,255,0.4));}
+
+.card .features {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:10px;
+list-style:none;}
+
+.card .features li {
+position:relative;
+display:flex;
+gap:5px;
+opacity:0;
+transition:none;
+transform:translateY(10px);}
+
+.card .features li .icon {
+position:relative;
+width:10px;
+height:10px;}
+
+.card .features li span {
+position:relative;
+font-size:0.6rem;
+font-weight:400;
+color:#492A08;}
+
+.card .price {
+position:relative;
+display:flex;
+gap:20px;}
+
+.card .price h1 {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:none;
+color:#93410A;
+font-size:1rem;
+font-weight:1000;
+font-family:"Tenor Sans", sans-serif;}
+
+.card .button-container {
+position:relative;
+opacity:0;
+transform:scale(0.8);}
+
+.card .price button {
+position:relative;
+right:0;
+padding:5px 7px;
+border-radius:30px;
+display:flex;
+gap:5px;
+transition:0.3s;
+background:#F0BC8C;
+cursor:pointer;
+pointer-events:auto;
+border:1px solid rgba(255,255,255,0.4);
+box-shadow:0 3px 6px rgba(179,68,6,0.2);}
+
+.card .price button .arrow {
+position:relative;
+width:15px;
+height:15px;}
+
+.card .price button span {
+position:relative;
+padding-left:7px;
+color:#B54808;
+font-size:0.5rem;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card.active {
+width:300px;
+pointer-events:none;}
+
+.card.active .image {
+transform:translateX(0);}
+
+.card.active .details {
+opacity:1;
+transition:0.3s 0.5s;}
+
+.card.active .details .line {
+width:100%;
+transition:0.4s 0.5s cubic-bezier(0,0,0,1);}
+
+.card.active .features li {
+opacity:1;
+transform:translateY(0);}
+
+.card.active .features li:nth-child(1) {
+transition:0.5s 0.5s;}
+
+.card.active .features li:nth-child(2) {
+transition:0.5s 0.6s;}
+
+.card.active .features li:nth-child(3) {
+transition:0.5s 0.7s;}
+
+.card.active .price h1 {
+opacity:1;
+transition:0.3s 0.9s;}
+
+.card.active .price .button-container {
+animation:Show 0.4s 0.8s forwards;}
+
+.card.active .price button:active {
+transform:scale(0.85);}
+
+@keyframes Show {
+0%{transform:scale(0.8);opacity:0;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+@keyframes bokeh1 {
+0%{transform:translate(0,0) scale(1);}
+50%{transform:translate(25px,-18px) scale(1.07);}
+100% {transform: translate(-10px, 12px) scale(0.96);}}
+
+@keyframes bokeh2 {
+0%{transform:translate(0, 0) scale(1);}
+50%{transform:translate(-20px, 15px) scale(0.94);}
+100%{transform:translate(15px, -20px) scale(1.09);}}
+
+@keyframes bokeh3 {
+0%{transform:translate(0, 0) scale(1);}
+50%{transform:translate(12px, 25px) scale(1.06);}
+100%{transform:translate(-22px, -10px) scale(0.97);}}
+
+@media screen and (min-width:870px) {
+
+.wrapper {
+height:calc(350px*100vw/870px);}
+
+.carousel {
+height:calc(250px*100vw/870px);
+padding:0 calc(10px*100vw/870px);
+gap:calc(10px*100vw/870px);}
+
+.card {
+width:calc(100px*100vw/870px);
+border-radius:calc(15px*100vw/870px);
+border:calc(1px*100vw/870px) solid rgba(255,255,255,0.2);
+box-shadow:0 calc(5px*100vw/870px) calc(10px*100vw/870px) rgba(179,68,6,0.2);}
+
+.card .image {
+width:calc(300px*100vw/870px);
+transform:translateX(calc(15px*100vw/870px));}
+
+.card .details {
+width:calc(200px*100vw/870px);
+padding:calc(35px*100vw/870px) calc(25px*100vw/870px);
+gap:calc(20px*100vw/870px);}
+
+.card .titles {
+gap:calc(8px*100vw/870px);}
+
+.card .titles h1 {
+font-size:calc(1.2rem*100vw/870px);}
+
+.card .titles h2 {
+font-size:calc(0.7rem*100vw/870px);}
+
+.card .titles .decoration {
+height:calc(10px*100vw/870px);}
+
+.card .titles .sparkle {
+width:calc(10px*100vw/870px);
+height:calc(8px*100vw/870px);
+filter:drop-shadow(0 calc(0.5px*100vw/870px) calc(2px*100vw/870px) rgba(179,68,6,0.2));}
+
+.card .titles .line {
+margin-left:calc(-2px*100vw/870px);
+height:calc(1px*100vw/870px);
+border-radius:calc(1px*100vw/870px);
+box-shadow:0 calc(0.5px*100vw/870px) calc(2px*100vw/870px) rgba(179,68,6,0.2);}
+
+.card .features {
+gap:calc(10px*100vw/870px);}
+
+.card .features li {
+gap:calc(5px*100vw/870px);
+transform:translateY(calc(10px*100vw/870px));}
+
+.card .features li .icon {
+width:calc(10px*100vw/870px);
+height:calc(10px*100vw/870px);}
+
+.card .features li span {
+font-size:calc(0.5rem*100vw/870px);}
+
+.card .price {
+gap:calc(15px*100vw/870px);}
+
+.card .price h1 {
+font-size:calc(1rem*100vw/870px);}
+
+.card .price button {
+padding:calc(5px*100vw/870px) calc(7px*100vw/870px);
+border-radius:calc(30px*100vw/870px);
+gap:calc(5px*100vw/870px);
+border:calc(1px*100vw/870px) solid rgba(255,255,255,0.4);
+box-shadow:0 calc(3px*100vw/870px) calc(6px*100vw/870px) rgba(179,68,6,0.2);}
+
+.card .price button .arrow {
+width:calc(15px*100vw/870px);
+height:calc(15px*100vw/870px);}
+
+.card .price button span {
+padding-left:calc(7px*100vw/870px);
+font-size:calc(0.5rem*100vw/870px);}
+
+.card.active {
+width:calc(300px*100vw/870px);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="container">
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+</div>
+
+<section class="wrapper">
+
+<ul class="carousel"></ul> 
+
+</section>
+
+</div>
+
+<script src="JS/Slides3.js"></script>
+
+</body>
+
+</html>

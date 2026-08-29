@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Swiper 1</title>
+<link rel="stylesheet" href="CSS/SwiperSource.css"/>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Sans-serif;
+user-select:none;
+transition:0.3s;}
+
+body {
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#FFD885,#FFC74E);}
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:1200px;}
+
+img {
+pointer-events:none;}
+
+.Wrapper {
+position:absolute;
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.Container {
+position:absolute;
+width:100%;
+height:calc(500px + 250px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.circle {
+position:absolute;
+width:calc(400px + 200px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(400px + 200px*(var(--i1) - var(--i2))/var(--i3));
+filter:blur(calc(30px + 15px*(var(--i1) - var(--i2))/var(--i3)));
+border-radius:50%;
+display:flex;
+background:radial-gradient(circle, #FFE794 50%, rgba(255,255,255,0.3) 100%);}
+
+.swiper {
+position:relative;
+width:100%;
+height:85%;
+padding:calc(50px + 25px*(var(--i1) - var(--i2))/var(--i3)) 0;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.swiper-wrapper {
+position:relative;
+width:100%;
+height:100%;
+padding:50px 0;
+display:flex;
+align-items:center;
+list-style:none;}
+
+.swiper-slide {
+position:relative;
+width:calc(300px + 150px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(300px + 150px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+transition:0.5s;
+border-radius:calc(12px + 6px*(var(--i1) - var(--i2))/var(--i3));
+outline:calc(1px + 0.5px*(var(--i1) - var(--i2))/var(--i3)) solid rgba(255,255,255,0.3);
+box-shadow:0 calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3)) calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.image {
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;}
+
+.layer {
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to left, transparent 20%, rgba(0,0,0,1) 100%);}
+
+.details-container {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:calc(30px + 15px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+flex-direction:column;
+gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.details {
+position:relative;
+display:flex;
+align-items:start;
+flex-direction:column;
+gap:calc(4px + 2px*(var(--i1) - var(--i2))/var(--i3));}
+
+.details h1 {
+position:relative;
+font-size:calc(1.3rem + 0.65rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:1000;
+color:#fff;
+text-shadow:0 calc(2px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(3px + 1.5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.5);}
+
+.details h1:nth-child(3) {
+color:#F3B72B;}
+
+.details p {
+position:relative;
+width:50%;
+margin-top:calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3));
+line-height:calc(18px + 9px*(var(--i1) - var(--i2))/var(--i3));
+font-size:calc(0.7rem + 0.35rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:400;
+color:#fff;
+text-shadow:0 calc(2px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(3px + 1.5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.5);}
+
+.details button {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3));
+margin-top:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+margin-right:auto;
+padding:calc(7px + 3.5px*(var(--i1) - var(--i2))/var(--i3)) calc(15px + 7.5px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(30px + 15px*(var(--i1) - var(--i2))/var(--i3));
+border:none;
+transition:0.3s;
+cursor:pointer;
+pointer-events:auto;
+background:linear-gradient(to right,#FDB411,#FED054);
+box-shadow:0 calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.6);}
+
+.details button span {
+position:relative;
+color:#000;
+font-size:calc(0.55rem + 0.275rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:800;}
+
+.details button img {
+position:relative;
+width:calc(14px + 7px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(14px + 7px*(var(--i1) - var(--i2))/var(--i3));}
+
+.swiper-slide ul {
+position:absolute;
+bottom:0;
+height:calc(50px + 25px*(var(--i1) - var(--i2))/var(--i3));
+padding:calc(15px + 7.5px*(var(--i1) - var(--i2))/var(--i3));
+width:100%;
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.swiper-slide .curve {
+position:absolute;
+width:100%;
+height:auto;
+bottom:0;}
+
+.swiper-slide ul li {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.swiper-slide ul li .icon {
+position:relative;
+width:calc(27px + 13.5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(27px + 13.5px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(to right,#FDB411,#FED054);}
+
+.swiper-slide ul li span {
+position:relative;
+color:#000;
+font-size:calc(0.6rem + 0.3rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:600;}
+
+.controls {
+position:absolute;
+width:calc(345px + 172.5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(45px + 22.5px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;}
+
+.controls img {
+position:absolute;
+width:calc(45px + 22.5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(45px + 22.5px*(var(--i1) - var(--i2))/var(--i3));
+z-index:1;
+border-radius:50%;
+cursor:pointer;
+pointer-events:auto;
+object-fit:cover;
+transition:0.3s ease;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+box-shadow:0 calc(3px + 1.5px*(var(--i1) - var(--i2))/var(--i3)) calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.5);}
+
+.controls img:active, .details button:active  {
+transform:scale(0.85);}
+
+.left.disabled, .right.disabled {
+opacity:0;
+pointer-events:none;}
+
+.left {
+left:0;}
+
+.right {
+right:0;}
+
+/* target the active bullet */
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+transform:scale(1);
+opacity:1;}
+
+/* target all bullets */
+.swiper-pagination-bullet {
+position:relative;
+width:calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3));
+opacity:0.5;
+transform:scale(0.6);
+cursor:pointer;
+background:#fff;
+box-shadow:0 calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0, 0, 0, 0.03);}
+
+@media screen and (max-width:600px) {
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:240px;}
+
+}
+
+@media screen and (min-width:600px)  and (max-width:1000px) {
+
+:root {
+--i1:100vw;
+--i2:600px;
+--i3:400px;}
+
+}
+
+@media screen and (min-width:1000px) {
+
+:root {
+--i1:100vw;
+--i2:1000px;
+--i3:600px;}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="Wrapper">
+
+<div class="circle"></div>
+
+<div class="Container">
+
+<section class="swiper mySwiper">
+
+<ul class="swiper-wrapper"></ul>
+
+<section class="controls">
+
+<img class="left" src="Offers/left-arrow.svg">
+
+<img class="right" src="Offers/right-arrow.svg">
+
+</section>
+
+<div class="swiper-pagination"></div>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/swiper.js"></script>
+
+<script src="JS/SwiperSource.js"></script>
+
+<script src="JS/Swiper1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Swiper 2</title>
+<link rel="stylesheet" href="CSS/SwiperSource.css"/>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Sans-serif;
+user-select:none;
+transition:0.3s;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#FFD885,#FFC74E);}
+
+:root {
+--gap:calc(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3));}
+
+img {
+pointer-events:none;}
+
+.Wrapper {
+position:absolute;
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.Container {
+position:absolute;
+width:100%;
+height:calc(var(--ratio1)*(500px + 500px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.circle {
+position:absolute;
+width:calc(var(--ratio1)*(400px + 400px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(var(--ratio1)*(400px + 400px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+filter:blur(calc(var(--ratio1)*(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))));
+border-radius:50%;
+display:flex;
+background:radial-gradient(circle, #FFE794 50%, rgba(255,255,255,0.3) 100%);}
+
+.swiper {
+position:relative;
+width:100%;
+height:85%;
+padding:calc(var(--ratio1)*(50px + 50px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) 0;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.swiper-wrapper {
+position:relative;
+width:100%;
+height:100%;
+padding:calc(var(--ratio1)*(50px + 50px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) 0;
+display:flex;
+align-items:center;
+list-style:none;}
+
+.swiper-slide {
+position:relative;
+width:var(--width);
+height:var(--width);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+transition:0.5s;
+margin-left:var(--gap);
+border-radius:calc(var(--ratio1)*(12px + 12px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+outline:calc(var(--ratio1)*(1px + 1px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) solid rgba(255,255,255,0.3);
+box-shadow:0 calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(20px + 20px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.3);}
+
+.swiper-slide:last-child {
+margin-right:var(--gap);}
+
+.image {
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;}
+
+.layer {
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to left, transparent 20%, rgba(0,0,0,1) 100%);}
+
+.details-container {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:calc(var(--ratio1)*(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+display:flex;
+flex-direction:column;
+gap:calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));}
+
+.details {
+position:relative;
+display:flex;
+align-items:start;
+flex-direction:column;
+gap:calc(var(--ratio1)*(4px + 4px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));}
+
+.details h1 {
+position:relative;
+font-size:calc(var(--ratio1)*(1.3rem + 1.3rem*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+font-weight:1000;
+color:#fff;
+text-shadow:0 calc(var(--ratio1)*(2px + 2px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(3px + 3px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.5);}
+
+.details h1:nth-child(3) {
+color:#F3B72B;}
+
+.details p {
+position:relative;
+width:50%;
+margin-top:calc(var(--ratio1)*(5px + 5px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+line-height:calc(var(--ratio1)*(18px + 18px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+font-size:calc(var(--ratio1)*(0.65rem + 0.65rem*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+font-weight:400;
+color:#fff;
+text-shadow:0 calc(var(--ratio1)*(2px + 2px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(3px + 3px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.5);}
+
+.details button {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(var(--ratio1)*(5px + 5px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+margin-top:calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+margin-right:auto;
+padding:calc(var(--ratio1)*(7px + 7px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(15px + 15px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+border-radius:calc(var(--ratio1)*(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+border:none;
+transition:0.3s;
+cursor:pointer;
+pointer-events:auto;
+background:linear-gradient(to right,#FDB411,#FED054);
+box-shadow:0 calc(var(--ratio1)*(5px + 5px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.6);}
+
+.details button span {
+position:relative;
+color:#000;
+font-size:calc(var(--ratio1)*(0.55rem + 0.55rem*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+font-weight:800;}
+
+.details button img {
+position:relative;
+width:calc(var(--ratio1)*(14px + 14px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(var(--ratio1)*(14px + 14px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));}
+
+.swiper-slide ul {
+position:absolute;
+bottom:0;
+height:calc(var(--ratio1)*(50px + 50px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+padding:calc(var(--ratio1)*(15px + 15px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+width:100%;
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));}
+
+.swiper-slide .curve {
+position:absolute;
+width:100%;
+height:auto;
+bottom:0;}
+
+.swiper-slide ul li {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));}
+
+.swiper-slide ul li .icon {
+position:relative;
+width:calc(var(--ratio1)*(27px + 27px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(var(--ratio1)*(27px + 27px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(to right,#FDB411,#FED054);}
+
+.swiper-slide ul li span {
+position:relative;
+color:#000;
+font-size:calc(var(--ratio1)*(0.6rem + 0.6rem*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+font-weight:600;}
+
+.controls {
+position:absolute;
+width:calc(100vw - 2*var(--gap) + var(--ratio1)*(45px + 45px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(var(--ratio1)*(45px + 45px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+display:flex;}
+
+.controls img {
+position:absolute;
+width:calc(var(--ratio1)*(45px + 45px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(var(--ratio1)*(45px + 45px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
+z-index:1;
+border-radius:50%;
+cursor:pointer;
+pointer-events:auto;
+object-fit:cover;
+transition:0.3s ease;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+box-shadow:0 calc(var(--ratio1)*(3px + 3px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(6px + 6px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.5);}
+
+.controls img:active, .details button:active  {
+transform:scale(0.85);}
+
+.left.disabled, .right.disabled {
+opacity:0;
+pointer-events:none;}
+
+.left {
+left:0;}
+
+.right {
+right:0;}
+
+/* target the active bullet */
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+transform:scale(1);
+opacity:1;}
+
+/* target all bullets */
+.swiper-pagination-bullet {
+position:relative;
+width:calc(20px*var(--ratio1) + 20px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3));
+height:calc(20px*var(--ratio1) + 20px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3));
+opacity:0.5;
+transform:scale(0.6);
+cursor:pointer;
+background:#fff;
+box-shadow:0 calc(5px*var(--ratio1) + 5px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)) calc(5px*var(--ratio1) + 5px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)) rgba(0, 0, 0, 0.03);}
+
+@media screen and (max-width:600px) {
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:240px;
+--ratio1:1;
+--ratio2:2/3;
+--width:calc(100vw - 2*var(--gap));}
+
+}
+
+@media screen and (min-width:600px)  and (max-width:1000px) {
+
+:root {
+--i1:100vw;
+--i2:600px;
+--i3:400px;
+--ratio1:0.85;
+--ratio2:2/3;
+--width:calc((100vw - 3*var(--gap))/2);}
+
+}
+
+@media screen and (min-width:1000px) {
+
+:root {
+--i1:100vw;
+--i2:1000px;
+--i3:600px;
+--ratio1:880/900;
+--ratio2:0.6;
+--width:calc((100vw - 4*var(--gap))/3);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="Wrapper">
+
+<div class="circle"></div>
+
+<div class="Container">
+
+<section class="swiper mySwiper">
+
+<ul class="swiper-wrapper"></ul>
+
+<section class="controls">
+
+<img class="left" src="Offers/left-arrow.svg">
+
+<img class="right" src="Offers/right-arrow.svg">
+
+</section>
+
+<div class="swiper-pagination"></div>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/swiper.js"></script>
+
+<script src="JS/SwiperSource.js"></script>
+
+<script src="JS/Swiper2.js"></script>
+
+</body>
+
+</html>
