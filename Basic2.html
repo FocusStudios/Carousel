@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<title>Basic Carousel - Style 2</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+:root {
+--i1:100vw;
+--i2:360px;
+--i3:1200px;
+--gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+--width:calc(150px + 75px*(var(--i1) - var(--i2))/var(--i3));
+--slidesInView:2;
+--scrollWidth:calc(var(--slidesInView)*(var(--width) + var(--gap)));
+--slidesPerView:round(down,calc(100vw/(var(--width) + var(--gap))),1);
+--x:calc((100vw - var(--slidesPerView)*var(--width) - (var(--slidesPerView) + 1)*var(--gap))/2);}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+box-sizing:border-box;
+user-select:none;
+font-family:Arial, Sans-serif;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+
+.main-container {
+position:absolute;
+width:100vw;
+height:100vh;
+overflow-x:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.container {
+position:relative;
+width:100vw;
+padding:calc(50px + 25px*(var(--i1) - var(--i2))/var(--i3)) 0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+overflow:hidden;}
+
+.logo {
+position:relative;
+width:calc(60px + 30px*(var(--i1) - var(--i2))/var(--i3));
+height:auto;}
+
+.slogan, .subtitle {
+position:relative;
+color:#fff;
+font-size:calc(1rem + 0.5rem*(var(--i1) - var(--i2))/var(--i3));
+font-family: "Montserrat", sans-serif;}
+
+.subtitle {
+opacity:0.7;
+font-weight:400;
+font-size:calc(0.7rem + 0.35rem*(var(--i1) - var(--i2))/var(--i3));}
+
+.wrapper {
+position:relative;
+width:100vw;
+height:calc(280px + 140px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:2%;}
+
+.carousel {
+position:absolute;
+top:0;
+left:0;
+height:calc(250px + 125px*(var(--i1) - var(--i2))/var(--i3));
+padding:var(--gap);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:var(--gap);
+transition:0.5s;}
+
+.card {
+position:relative;
+width:var(--width);
+height:100%;
+border-radius:calc(15px + 7.5px*(var(--i1) - var(--i2))/var(--i3));
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+box-shadow:0 calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.card .details {
+position:absolute;
+width:100%;
+padding:calc(15px + 7.5px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:calc(12px + 6px*(var(--i1) - var(--i2))/var(--i3));}
+
+.card .circle {
+position:relative;
+width:calc(70px + 35px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(70px + 35px*(var(--i1) - var(--i2))/var(--i3));
+object-fit:cover;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+
+.card .image {
+position:relative;
+width:calc(65px + 32.5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(65px + 32.5px*(var(--i1) - var(--i2))/var(--i3));
+object-fit:cover;
+border-radius:50%;
+outline:calc(1px + 1px*(var(--i1) - var(--i2))/var(--i3)) solid #fff;}
+
+.card .name {
+position:relative;
+display:flex;
+gap:calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.card h1 {
+position:relative;
+color:#001133;
+font-size:calc(0.7rem + 0.35rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:1000;}
+
+.card h2 {
+position:relative;
+color:#A3A3A3;
+font-size:calc(0.5rem + 0.25rem*(var(--i1) - var(--i2))/var(--i3));
+font-weight:400;}
+
+.card .line {
+position:relative;
+width:70%;
+height:calc(0.5px + 0.25px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(1px + 0.5px*(var(--i1) - var(--i2))/var(--i3));
+background:#A3A3A3;
+opacity:0.3;}
+
+.card .badge {
+position:relative;
+padding:calc(8px + 4px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(30px + 15px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+gap:calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3));
+background:#F3F2F6;}
+
+.card .badge img {
+position:relative;
+width:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.card .badge span {
+color:#001133;
+font-size:calc(0.5rem + 0.25rem*(var(--i1) - var(--i2))/var(--i3));
+height:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+padding-right:calc(4px + 2px*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+align-items:center;}
+
+.indicator {
+position:absolute;
+bottom:0;
+height:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3));}
+
+.dot {
+position:relative;
+width:calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+background:#fff;
+opacity:0.3;
+transition:0.3s;
+cursor:pointer;
+box-shadow:0 calc(2px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(2px + 4px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+
+.dot.active {
+position:relative;
+width:calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+opacity:1;
+cursor:default;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="container">
+
+<img class="logo" src="Profiles/Logo.svg">
+<h1 class="slogan">Meet Our Experts</h1>
+<h2 class="subtitle">Talented Professionals delivering exceptional results</h2>
+
+<section class="wrapper">
+
+<ul class="carousel"></ul>
+
+<ul class="indicator"></ul>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Basic2.js"></script>
+
+</body>
+
+</html>
