@@ -99,15 +99,13 @@ function Resize() {
 
 if(window.innerWidth > window.innerHeight){
 
-root.style.setProperty("--ia", "100vw");
-root.style.setProperty("--ib", "360px");
-root.style.setProperty("--ic", "1200px");
+root.style.setProperty("--i1", "100vw");
+root.style.setProperty("--i2", "800px");
 
 }else{
 
-root.style.setProperty("--ia", "100vw");
-root.style.setProperty("--ib", "360px");
-root.style.setProperty("--ic", "1200px");
+root.style.setProperty("--i1", "100vw");
+root.style.setProperty("--i2", "800px");
 
 }
 
