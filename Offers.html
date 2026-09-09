@@ -32,8 +32,7 @@ background:linear-gradient(#FFD885,#FFC74E);}
 
 :root {
 --i1:100vw;
---i2:800px;
---i3:800px;}
+--i2:800px;}
 
 img {
 pointer-events:none;}
@@ -292,7 +291,7 @@ filter:blur(calc(30px + 30px*(var(--i1) - var(--i2))/var(--i2)));}
 .slider {
 width:calc(300px + 300px*(var(--i1) - var(--i2))/var(--i2));
 height:calc(300px + 300px*(var(--i1) - var(--i2))/var(--i2));
-perspective:clamp(800px,calc(800px + 200px*(var(--i1) - var(--i2))/var(--i2),1000px);}
+perspective:calc(800px + 200px*(var(--i1) - var(--i2))/var(--i2));}
 
 .slide {
 border-radius:calc(12px + 12px*(var(--i1) - var(--i2))/var(--i2));
