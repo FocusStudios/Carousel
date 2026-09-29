@@ -126,7 +126,7 @@ const iceCreams = [
   {bg: "#baffe9", color: "#00ffae", shadow: "rgba(0, 255, 174, 0.5)", Shadow: "rgba(0, 255, 174, 0.3)", title: "Mint", text: "Mint ice cream topped with fresh mint leaves and chocolate chips.", display: "none"},
   {bg: "#fcffba", color: "#fcd503", shadow: "rgba(252, 213, 3, 0.5)", Shadow: "rgba(252, 213, 3, 0.3)", title: "Mango", text: "Mango ice cream mixed with small cubes of fresh mango.", display: "none"},
   {bg: "#8ceeff", color: "#00baee", shadow: "rgba(0, 198, 225, 0.8)", Shadow: "rgba(0, 198, 225, 0.3)", title: "Blueberry", text: "Blueberry ice cream infused with fresh blueberries and topped with mint leaves.", display: "none"},
-  {bg: "#fffef2", color: "#99997d", shadow: "rgba(116, 116, 95, 0.5)", Shadow: "rgba(116, 116, 95, 0.3)", title: "Vanilla", text: "Vanilla ice cream topped with fresh mint leaves.", display: "none"},
+  {bg: "#fffef2", color: "#99997d", shadow: "rgba(144, 144, 125, 0.3)", Shadow: "rgba(116, 116, 95, 0.4)", title: "Vanilla", text: "Vanilla ice cream topped with fresh mint leaves.", display: "none"},
   {bg: "#ab816a", color: "#732800", shadow: "rgba(115, 40, 0, 0.5)", Shadow: "rgba(115, 40, 0, 0.3)", title: "Chocolate", text: "Chocolate ice cream garnished with chocolate sauce.", display: "flex"},
   {bg: "#d3ffc2", color: "#50b317", shadow: "rgba(80, 179, 23, 0.5)", Shadow: "rgba(80, 179, 23, 0.3)", title: "Pistachio", text: "Pistachio ice cream garnished with pistachio and fresh mint leaves.", display: "flex"},
   {bg: "#fae7a7", color: "#e19e00", shadow: "rgba(225, 158, 0, 0.5)", Shadow: "rgba(255, 158, 0, 0.3)", title: "Caramel", text: "Creamy caramel ice cream topped with rich caramel sauce and crunchy caramel cubes.", display: "flex"}
