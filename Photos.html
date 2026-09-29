@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" type="image/x-icon" href="Focus.svg">
 <link rel="stylesheet" href="CSS/SwiperSource.css"/>
-<title>Photo Album</title>
+<title>Swiper - Cards</title>
   
 <style>
 
@@ -91,11 +91,16 @@ object-fit:cover;}
 
 h1 {
 position:absolute;
-bottom:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
-left:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+bottom:0;
+left:0;
+height:calc(50px + 25px*(var(--i1) - var(--i2))/var(--i3));
+padding:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
 font-size:calc(0.8rem + 0.4rem*(var(--i1) - var(--i2))/var(--i3));
 font-weight:500;
 color:#522B00;
+display:flex;
+align-items:center;
+justify-content:center;
 font-family: "Brittany";}
 
 h2 {
