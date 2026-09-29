@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<title>Slides - Style 4</title>
+<title>Slides - Style 3</title>
 
 <style>
 
@@ -53,16 +53,21 @@ display:flex;
 align-items:center;
 justify-content:center;}
 
-.shelf1, .shelf2, .shelf3 {
+.shelf1, .shelf2, .painting {
 position:absolute;
 height:auto;
 object-fit:cover;
+opacity:0;
+transform:scale(0.7);
+animation:Show 0.5s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 10px 15px rgba(117,52,0,0.6));}
 
 .shelf2 {
+animation:Show 0.5s 0.2s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 8px 15px rgba(117,52,0,0.5));}
 
-.shelf3 {
+.painting {
+animation:Show 0.5s 0.4s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 3px 5px rgba(117,52,0,0.5));}
 
 .container {
@@ -110,9 +115,24 @@ align-items:center;
 justify-content:center;
 pointer-events:auto;
 cursor:pointer;
+opacity:0;
+transform:translateY(-40px);
 box-shadow:0 3px 5px rgba(0,0,0,0.5);
 transition:0.4s cubic-bezier(0.5,0,0.5,1);
-background:linear-gradient(var(--i) 60%, #000 100%);}
+background:linear-gradient(var(--i) 60%, #000 100%);
+animation:Book 0.5s 0.5s forwards;}
+
+.card:nth-child(2) {
+animation:Book 0.5s 0.6s forwards;}
+
+.card:nth-child(3) {
+animation:Book 0.5s 0.7s forwards;}
+
+.card:nth-child(4) {
+animation:Book 0.5s 0.8s forwards;}
+
+.card:nth-child(5) {
+animation:Book 0.5s 0.9s forwards;}
 
 .card:nth-child(2), .card:nth-child(4) {
 height:250px;}
@@ -279,16 +299,23 @@ transition:0.5s 0.7s;;}
 .card.active button:active {
 transform:scale(0.85);}
 
+@keyframes Show {
+0%{transform:scale(0.5);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+@keyframes Book {
+to{transform:translateY(0);opacity:1;}}
+
 @media screen and (max-width:650px) {
 
 .shelf-container.state2  {
-height:calc(600px + 100px*(100vw - 360px)/290px);}
+height:calc(650px + 100px*(100vw - 360px)/290px);}
 
 .shelf-wrapper {
-height:calc(600px + 100px*(100vw - 360px)/290px);}
+height:calc(650px + 100px*(100vw - 360px)/290px);}
 
 .container {
-bottom:calc(60px + 30px*(100vw - 360px)/290px);}
+bottom:calc(50px + 40px*(100vw - 360px)/290px);}
 
 .shelf1 {
 bottom:calc(-143px - 105px*(100vw - 360px)/290px);
@@ -296,15 +323,15 @@ width:calc(530px + 390px*(100vw - 360px)/290px);
 filter:drop-shadow(0 calc(10px + 5px*(100vw - 360px)/290px) calc(15px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.6));}
 
 .shelf2 {
-top:20px;
-right:calc(-30px - 20px*(100vw - 360px)/290px);
+top:60px;
+right:calc(-30px - 10px*(100vw - 360px)/290px);
 width:calc(300px + 100px*(100vw - 360px)/290px);
 filter:drop-shadow(0 calc(8px + 4px*(100vw - 360px)/290px) calc(15px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.5));}
 
-.shelf3 {
-top:calc(-10px - 10px*(100vw - 360px)/290px);
-left:calc(-15px - 5px*(100vw - 360px)/290px);
-width:calc(150px + 80px*(100vw - 360px)/290px);
+.painting {
+top:calc(10px + 10px*(100vw - 360px)/290px);
+left:calc(10px + 10px*(100vw - 360px)/290px);
+width:calc(100px + 50px*(100vw - 360px)/290px);
 filter:drop-shadow(0 calc(3px + 3px*(100vw - 360px)/290px) calc(5px + 5px*(100vw - 360px)/290px) rgba(117,52,0,0.5));}
 
 }
@@ -317,7 +344,7 @@ filter:drop-shadow(0 calc(10px + 5px*(100vw - 650px)/950px) calc(15px + 5px*(100
 .shelf2 {
 filter:drop-shadow(0 calc(8px + 4px*(100vw - 650px)/950px) calc(15px + 5px*(100vw - 650px)/950px) rgba(117,52,0,0.5));}
 
-.shelf3 {
+.painting {
 filter:drop-shadow(0 calc(3px + 2px*(100vw - 650px)/950px) calc(5px + 2px*(100vw - 650px)/950px) rgba(117,52,0,0.5));}
 
 .wrapper {
@@ -425,12 +452,12 @@ width:calc(900px + 870px*(100vw - 650px)/950px);}
 .shelf2 {
 top:calc(20px - 120px*(100vw - 650px)/950px);
 right:calc(-50px + 10px*(100vw - 650px)/950px);
-width:calc(400px + 120px*(100vw - 650px)/950px);}
+width:calc(400px + 160px*(100vw - 650px)/950px);}
 
-.shelf3 {
-top:calc(-20px - 10px*(100vw - 650px)/950px);
-left:calc(-20px - 10px*(100vw - 650px)/950px);
-width:calc(230px + 80px*(100vw - 650px)/950px);}
+.painting {
+top:calc(20px - 10px*(100vw - 650px)/950px);
+left:calc(20px - 10px*(100vw - 650px)/950px);
+width:calc(150px + 80px*(100vw - 650px)/950px);}
 
 .container {
 bottom:calc(90px + 30px*(100vw - 650px)/950px);
@@ -452,13 +479,13 @@ width:calc(900px + 870px*(100vw - 650px)/950px);}
 
 .shelf2 {
 top:calc(-60px + 20px*(100vw - 650px)/950px);
-right:calc(-80px + 30px*(100vw - 650px)/950px);
+right:calc(-80px + 20px*(100vw - 650px)/950px);
 width:calc(400px + 380px*(100vw - 650px)/950px);}
 
-.shelf3 {
-top:calc(-20px + 20px*(100vw - 650px)/950px);
+.painting {
+top:calc(-20px + 40px*(100vw - 650px)/950px);
 left:calc(-20px + 30px*(100vw - 650px)/950px);
-width:calc(180px + 200px*(100vw - 650px)/950px);}
+width:calc(180px + 150px*(100vw - 650px)/950px);}
 
 .container {
 bottom:calc(100px + 100px*(100vw - 650px)/950px);
@@ -477,7 +504,7 @@ height:calc(300px + 240px*(100vw - 650px)/950px);}
 <div class="shelf-wrapper">
 
 <img class="shelf2" src="Books/Shelf2.png">
-<img class="shelf3" src="Books/Shelf3.png">
+<img class="painting" src="Books/Painting.png">
 
 <section class="container">
 
