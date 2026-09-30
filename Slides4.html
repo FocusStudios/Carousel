@@ -26,25 +26,26 @@ box-sizing:border-box;
 font-family: "Cormorant Garamond", serif;}
 
 body {
+width:100vw;
+height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 overflow-x:hidden;
-min-height:100vh;
 background:#FFE1C7;}
 
 .shelf-container {
-position:absolute;
+position:fixed;
 top:0;
-width:100vw;
-height:100vh;
+width:100%;
+height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
 overflow:hidden;}
 
 .shelf-container.state1 {
-height:100vh;}
+height:100%;}
 
 .shelf-wrapper {
 position:relative;
@@ -57,17 +58,12 @@ justify-content:center;}
 position:absolute;
 height:auto;
 object-fit:cover;
-opacity:0;
-transform:scale(0.7);
-animation:Show 0.5s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 10px 15px rgba(117,52,0,0.6));}
 
 .shelf2 {
-animation:Show 0.5s 0.2s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 8px 15px rgba(117,52,0,0.5));}
 
 .painting {
-animation:Show 0.5s 0.4s cubic-bezier(0,0,0.5,1.5) forwards;
 filter:drop-shadow(0 3px 5px rgba(117,52,0,0.5));}
 
 .container {
@@ -119,20 +115,7 @@ opacity:0;
 transform:translateY(-40px);
 box-shadow:0 3px 5px rgba(0,0,0,0.5);
 transition:0.4s cubic-bezier(0.5,0,0.5,1);
-background:linear-gradient(var(--i) 60%, #000 100%);
-animation:Book 0.5s 0.5s forwards;}
-
-.card:nth-child(2) {
-animation:Book 0.5s 0.6s forwards;}
-
-.card:nth-child(3) {
-animation:Book 0.5s 0.7s forwards;}
-
-.card:nth-child(4) {
-animation:Book 0.5s 0.8s forwards;}
-
-.card:nth-child(5) {
-animation:Book 0.5s 0.9s forwards;}
+background:linear-gradient(var(--i) 60%, #000 100%);}
 
 .card:nth-child(2), .card:nth-child(4) {
 height:250px;}
@@ -298,13 +281,6 @@ transition:0.5s 0.7s;;}
 
 .card.active button:active {
 transform:scale(0.85);}
-
-@keyframes Show {
-0%{transform:scale(0.5);opacity:1;}
-100%{transform:scale(1);opacity:1;}}
-
-@keyframes Book {
-to{transform:translateY(0);opacity:1;}}
 
 @media screen and (max-width:650px) {
 
