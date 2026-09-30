@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="Focus.svg">
-<title>Horizontal Infinite Slider</title>
+<title>Infinite Carousel</title>
 
 <style>
 
@@ -26,17 +26,19 @@ box-sizing:border-box;}
 --X:calc(var(--num) * (var(--width) + var(--gap))/2);}
 
 body {
+width:100vw;
+height:100vh;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-min-height:100vh;
+overflow:hidden;
 background:linear-gradient(to bottom right, #200075, #000);}
 
 .main-container {
-position:absolute;
-width:100vw;
-height:100vh;
+position:fixed;
+width:100%;
+height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
