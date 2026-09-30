@@ -8,6 +8,8 @@ const Badge = document.querySelector(".badge");
 const Button = document.querySelector(".button-container");
 const root = document.documentElement;
 
+Container.style.background = "red";
+
 function Resize() {
 
 if(window.innerWidth > window.innerHeight){
