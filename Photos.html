@@ -28,11 +28,11 @@ box-sizing:border-box;
 font-family: Arial, Sans-serif;}
 
 body {
+width:100vw;
+height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-width:100vw;
-height:100vh;
 overflow-x:hidden;
 transition:0.3s;
 background:rgba(255,235,214,0.6);
@@ -45,6 +45,15 @@ background-position:center;}
 --i1:100vw;
 --i2:360px;
 --i3:1200px;}
+
+.Main-Container {
+position:fixed;
+top:0;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;}
 
 .Container {
 position:absolute;
@@ -157,6 +166,8 @@ transform:scale(0.85);}
 
 <body>
 
+<div class="Main-Container">
+
 <div class="Container">
 
 <section class="swiper mySwiper">
@@ -177,6 +188,8 @@ transform:scale(0.85);}
 <img class="decoration" src="Photos/branch2.svg">
 
 </section>
+
+</div>
 
 </div>
 
