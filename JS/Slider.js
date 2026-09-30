@@ -169,13 +169,11 @@ root.style.setProperty("--ic", "1200px");
 
 if(window.innerHeight < Container.offsetHeight){
 
-Wrapper.classList.remove("state1");
-Wrapper.classList.add("state2");
+Wrapper.style.height = "calc(400px + 400px*(var(--i1) - var(--i2))/var(--i3))";
 
 }else{
 
-Wrapper.classList.remove("state2");
-Wrapper.classList.add("state1");
+ Wrapper.style.height = "100%";
 
 }
 
