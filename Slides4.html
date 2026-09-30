@@ -52,7 +52,8 @@ position:relative;
 width:100%;
 display:flex;
 align-items:center;
-justify-content:center;}
+justify-content:center;
+overflow:hidden;}
 
 .shelf1, .shelf2, .painting {
 position:absolute;
@@ -111,8 +112,6 @@ align-items:center;
 justify-content:center;
 pointer-events:auto;
 cursor:pointer;
-opacity:0;
-transform:translateY(-40px);
 box-shadow:0 3px 5px rgba(0,0,0,0.5);
 transition:0.4s cubic-bezier(0.5,0,0.5,1);
 background:linear-gradient(var(--i) 60%, #000 100%);}
@@ -285,7 +284,8 @@ transform:scale(0.85);}
 @media screen and (max-width:650px) {
 
 .shelf-container.state2  {
-height:calc(650px + 100px*(100vw - 360px)/290px);}
+height:calc(650px + 100px*(100vw - 360px)/290px);
+background:red;}
 
 .shelf-wrapper {
 height:calc(650px + 100px*(100vw - 360px)/290px);}
