@@ -26,7 +26,7 @@ Container.style.height = `${0.5*window.innerWidth}px`;
 
 }else{
 
-Container.style.height = "100vh";
+Container.style.height = "100%";
 
 }
 
