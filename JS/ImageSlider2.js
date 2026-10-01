@@ -1,4 +1,5 @@
 const Wrapper = document.querySelector(".Wrapper");
+const MainContainer = document.querySelector(".Main-Container");
 const Container = document.querySelector(".container");
 const slider = document.querySelector(".slider");
 const left = document.querySelector(".left");
@@ -23,12 +24,13 @@ root.style.setProperty("--i3","1200px");
 
 if(window.innerHeight < Container.offsetHeight){
 
-Container.style.position = "absolute";
-Container.style.top = "0";
+ MainContainer.classList.remove("state1");
+ MainContainer.classList.add("state2");
 
 }else{
 
-Container.style.position = "relative";
+ MainContainer.classList.remove("state2");
+ MainContainer.classList.add("state1");
 
 }
 
