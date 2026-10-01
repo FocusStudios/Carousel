@@ -110,12 +110,13 @@ root.style.setProperty("--ic", "1200px");
 
 if(window.innerHeight < Wrapper.offsetHeight){
 
-Wrapper.style.position = "absolute";
-Wrapper.style.top = "0";
+Wrapper.classList.remove("state1");
+Wrapper.classList.add("state2");
 
 }else{
 
-Wrapper.style.position = "relative";
+Wrapper.classList.remove("state2");
+Wrapper.classList.add("state1");
 
 }
 
