@@ -1,5 +1,5 @@
 const wrapper = document.querySelector(".wrapper");
-const Container = document.querySelector(".container");
+const MainContainer = document.querySelector(".Main-Container");
 const slider = document.querySelector(".slider");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
@@ -21,14 +21,15 @@ root.style.setProperty("--i3","1200px");
 
 }
 
-if(window.innerHeight < Container.offsetHeight){
+if(window.innerHeight < MainContainer.offsetHeight){
 
-Container.style.position = "absolute";
-Container.style.top = "0";
+ MainContainer.classList.remove("state1");
+ MainContainer.classList.add("state2");
 
 }else{
 
-Container.style.position = "relative";
+ MainContainer.classList.remove("state2");
+ MainContainer.classList.add("state1");
 
 }
 
