@@ -34,6 +34,8 @@ if(window.innerHeight < Container.offsetHeight){
 
 }
 
+ root.style.setProperty("--height",MainContainer.offsetHeight);
+
 }
 
 Resize();
