@@ -24,8 +24,6 @@ slides.forEach(slide => {
 
      <img class="image" src="${slide.image}">
 
-     <div class="layer"></div>
-
      <div class="details-container">
 
       <section class="details">
