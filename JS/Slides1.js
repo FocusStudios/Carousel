@@ -71,31 +71,31 @@ Cards.forEach((card, i) => {
 
 function Resize() {
 
-if(window.innerWidth > window.innerHeight){
+ if(window.innerWidth > window.innerHeight){
 
-root.style.setProperty("--ia", "100vw");
-root.style.setProperty("--ib", "360px");
-root.style.setProperty("--ic", "1200px");
+  root.style.setProperty("--ia", "100vw");
+  root.style.setProperty("--ib", "360px");
+  root.style.setProperty("--ic", "1200px");
 
-}else{
+ }else{
 
-root.style.setProperty("--ia", "100vw");
-root.style.setProperty("--ib", "360px");
-root.style.setProperty("--ic", "1200px");
+  root.style.setProperty("--ia", "100vw");
+  root.style.setProperty("--ib", "360px");
+  root.style.setProperty("--ic", "1200px");
 
-}
+ }
 
-if(window.innerHeight < Wrapper.offsetHeight){
+ if(window.innerHeight < Wrapper.offsetHeight){
 
-Wrapper.classList.remove("state1");
-Wrapper.classList.add("state2");
+  Container.classList.remove("state1");
+  Container.classList.add("state2");
 
-}else{
+ }else{
 
-Wrapper.classList.remove("state2");
-Wrapper.classList.add("state1");
+  Container.classList.remove("state2");
+  Container.classList.add("state1");
 
-}
+ }
 
 }
 
