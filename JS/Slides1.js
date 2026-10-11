@@ -1,3 +1,4 @@
+const Container = document.querySelector(".container");
 const Wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 const root = document.documentElement;
