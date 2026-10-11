@@ -104,21 +104,15 @@ width:100%;
 height:100%;
 object-fit:cover;}
 
-.layer {
+.details-container {
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to left, transparent 20%, rgba(0,0,0,1) 100%);}
-
-.details-container {
-position:absolute;
-top:0;
-left:0;
-width:100%;
 padding:calc(30px + 15px*(var(--i1) - var(--i2))/var(--i3));
 display:flex;
 flex-direction:column;
-gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));}
+gap:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+background:linear-gradient(to left, transparent 20%, rgba(0,0,0,1) 100%);}
 
 .details {
 position:relative;
