@@ -8,7 +8,7 @@ const slides = [
  {image: "Profiles/profile2.png", name: "Parker K.", display: "none", job: "Full-Stack Developer", badge: "Profiles/node.svg", text: "Node.js, React.js"},
  {image: "Profiles/profile3.png", name: "Emma U.", display: "flex", job: "UI/UX Designer", badge: "Profiles/adobe.svg", text: "Adobe XD, Illustrator"},
  {image: "Profiles/profile4.png", name: "John M.", display: "flex", job: "Front-end Developer", badge: "Profiles/code.svg", text: "HTML, CSS, JS"},
- {image: "Profiles/profile5.png", name: "Samantha L.", display: "none", job: "Back-end Developer", badge: "Profiles/layers.svg", text: "PHP, SQL"},
+ {image: "Profiles/profile5.png", name: "Samantha L.", display: "none", job: "Back-end Developer", badge: "Profiles/server.svg", text: "PHP, MySQL"},
  {image: "Profiles/profile6.png", name: "Diana S.", display: "none", job: "Back-end Developer", badge: "Profiles/java.svg", text: "JS, Node.js"},
  {image: "Profiles/profile7.png", name: "Adrian P.", display: "flex", job: "UI/UX Designer", badge: "Profiles/figma.svg", text: "Figma, Illustrator"},
  {image: "Profiles/profile8.png", name: "Talia A.", display: "flex", job: "Full-Stack Developer", badge: "Profiles/vue.svg", text: "Vue.js, React.js"},
