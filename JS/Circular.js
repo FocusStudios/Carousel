@@ -11,25 +11,25 @@ const root = document.documentElement;
 
 function Resize() {
 
-if(window.innerWidth > window.innerHeight){
+ if(window.innerWidth > window.innerHeight){
 
-Container.classList.replace("height","width");
+   Container.classList.replace("height","width");
 
-}else{
+ }else{
 
-Container.classList.replace("width","height");
+  Container.classList.replace("width","height");
 
-}
+ }
 
-if(window.innerHeight < 0.5*window.innerWidth){
+ if(window.innerHeight < 0.5*window.innerWidth){
 
-Container.style.height = `${0.5*window.innerWidth}px`;
+  Container.style.height = `${0.5*window.innerWidth}px`;
 
-}else{
+ }else{
 
-Container.style.height = "100%";
+  Container.style.height = "100%";
 
-}
+ }
 
 }
 
@@ -77,58 +77,60 @@ buttons.forEach((button,index) => {
 
 button.addEventListener("click", () => {
 
-buttons.forEach(btn => {
-if (btn !== button && btn.classList.contains("active")) {btn.classList.remove("active");}});
-button.classList.toggle("active");
+ buttons.forEach(btn => {
+  if (btn !== button && btn.classList.contains("active")) {btn.classList.remove("active");}
+  });
+ 
+ button.classList.toggle("active");
 
-document.querySelector(".Active").classList.remove("Active");
-Imgs[index].classList.add("Active");
+ document.querySelector(".Active").classList.remove("Active");
+ Imgs[index].classList.add("Active");
 
-Title.style.transform="translateY(100vh)";text.style.transform="translateY(100vh)";
-Title.style.opacity="0";Title.style.transition="0s";
-text.style.opacity="0";text.style.transition="0s";
+ Title.style.transform="translateY(100vh)";text.style.transform="translateY(100vh)";
+ Title.style.opacity="0";Title.style.transition="0s";
+ text.style.opacity="0";text.style.transition="0s";
 
-// Reset animation
-Badge.style.animation = "none";
-Badge.style.opacity = "0";
-Badge.style.display = "flex";
-Badge.style.transform = "scale(0.8)";
+ // Reset animation
+ Badge.style.animation = "none";
+ Badge.style.opacity = "0";
+ Badge.style.display = "flex";
+ Badge.style.transform = "scale(0.8)";
 
-Button.style.animation = "none";
-Button.style.opacity = "0";
-Button.style.transform = "scale(0.8)";
+ Button.style.animation = "none";
+ Button.style.opacity = "0";
+ Button.style.transform = "scale(0.8)";
 
-// Force browser to apply the reset
-void Badge.offsetWidth;
-void Button.offsetWidth;
+ // Force browser to apply the reset
+ void Badge.offsetWidth;
+ void Button.offsetWidth;
 
-// Start animations
-requestAnimationFrame(() => {
+ // Start animations
+ requestAnimationFrame(() => {
 
-Title.style.transition = "0.8s";
-text.style.transition = "0.5s 0.5s";
+  Title.style.transition = "0.8s";
+  text.style.transition = "0.5s 0.5s";
 
-Title.style.transform = "translateY(0)";
-text.style.transform = "translateY(0)";
+  Title.style.transform = "translateY(0)";
+  text.style.transform = "translateY(0)";
 
-Title.style.opacity = "1";
-text.style.opacity = "1";
+  Title.style.opacity = "1";
+  text.style.opacity = "1";
 
-// Start Button animation again
-Badge.style.display = iceCream.display;
-Badge.style.animation = "PopUp 0.4s 0.8s forwards";
-Button.style.animation = "PopUp 0.4s 1s forwards";
+  // Start Button animation again
+  Badge.style.display = iceCream.display;
+  Badge.style.animation = "PopUp 0.4s 0.8s forwards";
+  Button.style.animation = "PopUp 0.4s 1s forwards";
 
-});
+ });
 
 const iceCreams = [
 
-  {bg: "#ffbad3", color: "#ff3884", shadow: "rgba(255, 24, 113, 0.4)", Shadow: "rgba(255, 24, 113, 0.3)", title: "Strawberry", text: "Strawberry ice cream mixed with small pieces of fresh strawberries.", display: "flex"},
+  {bg: "#ffc9d4", color: "#ff3884", shadow: "rgba(255, 24, 113, 0.4)", Shadow: "rgba(255, 24, 113, 0.3)", title: "Strawberry", text: "Strawberry ice cream mixed with small pieces of fresh strawberries.", display: "flex"},
   {bg: "#baffe9", color: "#00ffae", shadow: "rgba(0, 255, 174, 0.5)", Shadow: "rgba(0, 255, 174, 0.3)", title: "Mint", text: "Mint ice cream topped with fresh mint leaves and chocolate chips.", display: "none"},
   {bg: "#fcffba", color: "#fcd503", shadow: "rgba(252, 213, 3, 0.5)", Shadow: "rgba(252, 213, 3, 0.3)", title: "Mango", text: "Mango ice cream mixed with small cubes of fresh mango.", display: "none"},
   {bg: "#8ceeff", color: "#00baee", shadow: "rgba(0, 198, 225, 0.8)", Shadow: "rgba(0, 198, 225, 0.3)", title: "Blueberry", text: "Blueberry ice cream infused with fresh blueberries and topped with mint leaves.", display: "none"},
   {bg: "#ffffe6", color: "#99997d", shadow: "rgba(144, 144, 125, 0.3)", Shadow: "rgba(116, 116, 95, 0.4)", title: "Vanilla", text: "Vanilla ice cream topped with fresh mint leaves.", display: "none"},
-  {bg: "#ab816a", color: "#732800", shadow: "rgba(115, 40, 0, 0.5)", Shadow: "rgba(115, 40, 0, 0.3)", title: "Chocolate", text: "Chocolate ice cream garnished with chocolate sauce.", display: "flex"},
+  {bg: "#cf9c81", color: "#732800", shadow: "rgba(115, 40, 0, 0.5)", Shadow: "rgba(115, 40, 0, 0.3)", title: "Chocolate", text: "Chocolate ice cream garnished with chocolate sauce.", display: "flex"},
   {bg: "#d3ffc2", color: "#50b317", shadow: "rgba(80, 179, 23, 0.5)", Shadow: "rgba(80, 179, 23, 0.3)", title: "Pistachio", text: "Pistachio ice cream garnished with pistachio and fresh mint leaves.", display: "flex"},
   {bg: "#fae7a7", color: "#e19e00", shadow: "rgba(225, 158, 0, 0.5)", Shadow: "rgba(255, 158, 0, 0.3)", title: "Caramel", text: "Creamy caramel ice cream topped with rich caramel sauce and crunchy caramel cubes.", display: "flex"}
 
@@ -136,16 +138,18 @@ const iceCreams = [
 
 const iceCream = iceCreams[index];
 
-Background.style.background = iceCream.bg;
-document.body.style.background = iceCream.bg;
-text.innerHTML = iceCream.text;
-Title.querySelectorAll("h1")[0].innerHTML = iceCream.title;
-Title.querySelectorAll("h1").forEach(title => title.style.color = iceCream.color);
-root.style.setProperty("--fill", iceCream.color);
-root.style.setProperty("--shadow", iceCream.shadow);
-root.style.setProperty("--Shadow", iceCream.Shadow);
+ Background.style.background = iceCream.bg;
+ document.body.style.background = iceCream.bg;
+ 
+ text.innerHTML = iceCream.text;
+ Title.querySelectorAll("h1")[0].innerHTML = iceCream.title;
+ Title.querySelectorAll("h1").forEach(title => title.style.color = iceCream.color);
+ 
+ root.style.setProperty("--fill", iceCream.color);
+ root.style.setProperty("--shadow", iceCream.shadow);
+ root.style.setProperty("--Shadow", iceCream.Shadow);
 
-});
+ });
 
 });
 
