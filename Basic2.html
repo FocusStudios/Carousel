@@ -43,7 +43,7 @@ overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+background:#F7F8FE;}
 
 .main-container {
 position:fixed;
@@ -71,14 +71,26 @@ position:relative;
 width:calc(60px + 30px*(var(--i1) - var(--i2))/var(--i3));
 height:auto;}
 
-.slogan, .subtitle {
+.slogan {
 position:relative;
-color:#fff;
-font-size:calc(1rem + 0.5rem*(var(--i1) - var(--i2))/var(--i3));
+display:flex;
+gap:calc(5px + 5px*(var(--i1) - var(--i2))/var(--i3));
+padding-bottom:calc(5px*(var(--i1) - var(--i2))/var(--i3));}
+
+.slogan h1, .subtitle {
+position:relative;
+font-size:calc(1.5rem + 1.5rem*(var(--i1) - var(--i2))/var(--i3));
 font-family: "Montserrat", sans-serif;}
+
+.slogan h1:nth-child(2) {
+color:transparent;
+background:linear-gradient(to right, #FF0099, #512BE8);
+-webkit-background-clip:text;
+background-clip:text;}
 
 .subtitle {
 opacity:0.7;
+color:#263577;
 font-weight:400;
 font-size:calc(0.7rem + 0.35rem*(var(--i1) - var(--i2))/var(--i3));}
 
@@ -113,7 +125,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 background:#fff;
-box-shadow:0 calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+box-shadow:0 0 calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3)) rgba(188, 186, 246, 0.7);}
 
 .card .details {
 position:absolute;
@@ -205,16 +217,16 @@ position:relative;
 width:calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3));
 height:calc(6px + 3px*(var(--i1) - var(--i2))/var(--i3));
 border-radius:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
-background:#fff;
+background:linear-gradient(to right, #FF0099, #512BE8);
 opacity:0.3;
 transition:0.3s;
 cursor:pointer;
-box-shadow:0 calc(2px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(2px + 4px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.3);}
+box-shadow:0 calc(2px + 1px*(var(--i1) - var(--i2))/var(--i3)) calc(2px + 4px*(var(--i1) - var(--i2))/var(--i3)) rgba(188, 186, 246, 1);}
 
 .dot.active {
 position:relative;
 width:calc(20px + 10px*(var(--i1) - var(--i2))/var(--i3));
-height:calc(10px + 5px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(8px + 4px*(var(--i1) - var(--i2))/var(--i3));
 opacity:1;
 cursor:default;}
 
@@ -229,7 +241,12 @@ cursor:default;}
 <div class="container">
 
 <img class="logo" src="Profiles/Logo.svg">
-<h1 class="slogan">Meet Our Experts</h1>
+
+<div class="slogan">
+ <h1>Meet Our</h1>
+ <h1>Experts</h1>
+</div>
+
 <h2 class="subtitle">Talented Professionals delivering exceptional results</h2>
 
 <section class="wrapper">
