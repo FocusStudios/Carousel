@@ -28,7 +28,7 @@ overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(to bottom right, #130840, #000);}
+background:#000020;}
 
 :root {
 --i1:100vw;
@@ -44,6 +44,18 @@ display:flex;
 justify-content:center;
 align-items:center;
 overflow-x:hidden;}
+
+.background {
+position:absolute;
+width:100%;
+height:auto;
+object-fit:cover;}
+
+.background:nth-child(1) {
+top:0;}
+
+.background:nth-child(2) {
+bottom:0;}
 
 .container {
 position:absolute;
@@ -78,7 +90,7 @@ transform:rotateY(calc(var(--i)*30deg)) translateZ(calc(560px + 140px*(var(--i1)
 position:absolute;
 width:100%;
 height:100%;
-border-radius:calc(10px + 2.5px*(var(--i1) - var(--i2))/var(--i3));
+border-radius:calc(15px + 3.75px*(var(--i1) - var(--i2))/var(--i3));
 display:flex;
 justify-content:center;
 align-items:center;
@@ -88,37 +100,41 @@ background:var(--gradient);
 box-shadow:0 0 calc(20px + 5px*(var(--i1) - var(--i2))/var(--i3)) var(--shadow);}
 
 .slider .slide:nth-child(1) .card, .slider .slide:nth-child(5) .card, .slider .slide:nth-child(9) .card {
---border:rgba(0,160,255,0.8);
---Shadow:rgba(0,160,255,0.4);
---shadow:rgba(0,160,255,0.3);
---gradient:linear-gradient(to bottom right, #00B5FF, #003FFF);}
+--border:rgba(51,157,255,0.8);
+--Shadow:rgba(51,157,255,0.6);
+--shadow:rgba(51,157,255,0.6);
+--button:linear-gradient(to right, #45A5FE, #0066FF);
+--gradient:linear-gradient(to bottom right, #45A5FE 30%, #7ABAFF 50% ,#0066FF 70%);}
 
 .slider .slide:nth-child(2) .card, .slider .slide:nth-child(6) .card, .slider .slide:nth-child(10) .card {
---border:rgba(195,76,255,0.8);
---Shadow:rgba(195,76,255,0.4);
---shadow:rgba(195,76,255,0.3);
---gradient:linear-gradient(to bottom right, #BC5CFE, #7626EE);}
+--border:rgba(188,74,253,0.8);
+--Shadow:rgba(188,74,253,0.6);
+--shadow:rgba(188,74,253,0.5);
+--button:linear-gradient(to right, #BC4AFD,#7626EF);
+--gradient:linear-gradient(to bottom right, #BF54FD 30%, #CD94FF 50%,#8800FF 70%);}
 
 .slider .slide:nth-child(3) .card, .slider .slide:nth-child(7) .card, .slider .slide:nth-child(11) .card {
 --border:rgba(0,63,255,0.8);
---Shadow:rgba(0,63,255,0.4);
---shadow:rgba(0,63,255,0.4);
---gradient:linear-gradient(to bottom right, #4B6EFB, #000ECC);}
+--Shadow:rgba(0,63,255,0.6);
+--shadow:rgba(0,63,255,0.7);
+--button:linear-gradient(to right, #335CFF, #0026BD);
+--gradient:linear-gradient(to bottom right, #4B6EFB 30%, #6180FF 50%, #0026BD 70%);}
 
 .slider .slide:nth-child(4) .card, .slider .slide:nth-child(8) .card, .slider .slide:nth-child(12) .card {
---border:rgba(138,73,255,0.8);
---Shadow:rgba(138,73,255,0.4);
---shadow:rgba(138,73,255,0.3);
---gradient:linear-gradient(to bottom right, #A16BFF, #5E00FF);}
+--border:rgba(95,0,255,0.8);
+--Shadow:rgba(95,0,255,0.6);
+--shadow:rgba(95,0,255,0.7);
+--button:linear-gradient(to right, #8800FF,#5F00FF);
+--gradient:linear-gradient(to bottom right, #8800FF 30%, #B58AFF 50%,#5F00FF 70%);}
 
 .slider .slide .card:hover {
 transform:scale(1.1);}
 
 .slide .image {
 position:absolute;
-width:calc(100% - (1px + 0.5px*(var(--i1) - var(--i2))/var(--i3)));
-height:calc(100% - (1px + 0.5px*(var(--i1) - var(--i2))/var(--i3)));
-border-radius:calc(9.5px + 2.375px*(var(--i1) - var(--i2))/var(--i3));
+width:calc(100% - (2px + 1px*(var(--i1) - var(--i2))/var(--i3)));
+height:calc(100% - (2px + 1px*(var(--i1) - var(--i2))/var(--i3)));
+border-radius:calc(14px + 3.5px*(var(--i1) - var(--i2))/var(--i3));
 object-fit:cover;}
 
 .badge {
@@ -265,7 +281,7 @@ border:none;
 transition:0.3s;
 cursor:pointer;
 pointer-events:auto;
-background:var(--gradient);
+background:var(--button);
 box-shadow:0 calc(2px + 0.5px*(var(--i1) - var(--i2))/var(--i3)) calc(10px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) var(--Shadow);}
 
 footer .price button:active, .like:active {
@@ -279,8 +295,8 @@ font-weight:600;}
 
 footer .price button .icon {
 position:relative;
-width:calc(12px + 3px*(var(--i1) - var(--i2))/var(--i3));
-height:calc(12px + 3px*(var(--i1) - var(--i2))/var(--i3));}
+width:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));}
 
 @keyframes Rotate {
 0%{transform:perspective(4000px) rotateY(0deg);}
@@ -293,6 +309,9 @@ height:calc(12px + 3px*(var(--i1) - var(--i2))/var(--i3));}
 <body>
 
 <div class="wrapper">
+
+<img class="background" src="Devices/background1.png">
+<img class="background" src="Devices/background2.png">
 
 <div class="container">
 
