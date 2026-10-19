@@ -109,14 +109,15 @@ function Resize() {
 
  }
 
- if(window.innerHeight < Wrapper.offsetHeight){
+if(window.innerHeight < Wrapper.offsetHeight){
 
- Wrapper.style.position = "absolute";
- Wrapper.style.top = "0";
+  Container.classList.remove("state1");
+  Container.classList.add("state2");
 
-}else{
+ }else{
 
- Wrapper.style.position = "relative";
+  Container.classList.remove("state2");
+  Container.classList.add("state1");
 
 }
  
