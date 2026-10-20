@@ -1,3 +1,4 @@
+const Container = document.querySelector(".container");
 const Wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 const root = document.documentElement;
@@ -107,12 +108,13 @@ root.style.setProperty("--ic", "1200px");
 
 if(window.innerHeight < Wrapper.offsetHeight){
 
-Wrapper.style.position = "absolute";
-Wrapper.style.top = "0";
+Container.classList.remove("state1");
+Container.classList.add("state2");
 
 }else{
 
-Wrapper.style.position = "relative";
+Container.classList.remove("state2");
+Container.classList.add("state1");
 
 }
 
