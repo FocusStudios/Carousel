@@ -59,6 +59,12 @@ display:flex;
 align-items:center;
 justify-content:center;}
 
+.container.state1 {
+height:100%;}
+
+.container.state2 {
+height:350px;}
+
 .circle {
 position:absolute;
 border-radius:50%;
@@ -75,7 +81,7 @@ height:calc(70px + 70px * (100vw - 360px)/1200px);
 animation:bokeh1 12s ease-in-out infinite alternate;}
 
 .circle:nth-child(2) {
-top:calc(50px + 50px * (100vw - 360px)/1200px)
+top:calc(50px + 50px * (100vw - 360px)/1200px);
 right:calc(-20px - 20px * (100vw - 360px)/1200px);
 width:calc(150px + 150px * (100vw - 360px)/1200px);
 height:calc(150px + 150px * (100vw - 360px)/1200px);
@@ -325,6 +331,9 @@ transform:scale(0.85);}
 100%{transform:translate(-22px, -10px) scale(0.97);}}
 
 @media screen and (min-width:870px) {
+
+.container.state2 {
+height:calc(350px*100vw/870px);}
   
 .wrapper {
 height:calc(350px*100vw/870px);}
@@ -426,13 +435,13 @@ width:calc(300px*100vw/870px);}
 <div class="circle"></div>
 <div class="circle"></div>
 
-</div>
-
 <section class="wrapper">
 
 <ul class="carousel"></ul> 
 
 </section>
+
+</div>
 
 </div>
 
