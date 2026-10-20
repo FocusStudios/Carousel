@@ -1,3 +1,4 @@
+const Wrapper = document.querySelector(".wrapper");
 const Container = document.querySelector(".container");
 const slider = document.querySelector(".slider");
 const root = document.documentElement;
@@ -132,12 +133,13 @@ root.style.setProperty("--ic", "1200px");
 
 if(window.innerHeight < Container.offsetHeight){
 
-Container.style.position = "absolute";
-Container.style.top = "0";
+Wrapper.classList.remove("state1");
+Wrapper.classList.add("state2");
 
 }else{
 
-Container.style.position = "relative";
+Wrapper.classList.remove("state2");
+Wrapper.classList.add("state1");
 
 }
 
