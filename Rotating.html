@@ -35,7 +35,7 @@ background:#000020;}
 --i2:360px;
 --i3:1200px;}
 
-.wrapper {
+.main-container {
 position:fixed;
 top:0;
 width:100%;
@@ -44,6 +44,22 @@ display:flex;
 justify-content:center;
 align-items:center;
 overflow-x:hidden;}
+
+.wrapper {
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;}
+
+.wrapper.state1 {
+height:100%;}
+
+.wrapper.state2 {
+height:calc(660px + 165px*(var(--i1) - var(--i2))/var(--i3));}
 
 .background {
 position:absolute;
@@ -308,6 +324,8 @@ height:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));}
 
 <body>
 
+<div class="main-container">
+
 <div class="wrapper">
 
 <img class="background" src="Devices/background1.png">
@@ -316,6 +334,8 @@ height:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));}
 <div class="container">
 
 <ul class="slider"></ul>
+
+</div>
 
 </div>
 
