@@ -30,7 +30,7 @@ overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(#FBD2DA,#FF99AD);}
+background:#FCE9EB;}
 
 :root {
 --ia:100vw;
@@ -62,6 +62,20 @@ height:100%;}
 
 .container.state2 {
 height:calc(250px + 500px*(var(--ia) - var(--ib))/var(--ic));}
+
+.part1, .part2 {
+position:absolute;
+width:calc(100px + 100px*(var(--ia) - var(--ib))/var(--ic));
+height:auto;
+object-fit:cover;}
+
+.part1 {
+top:0;
+right:0;}
+
+.part2 {
+bottom:0;
+left:0;}
 
 .wrapper {
 position:absolute;
@@ -95,7 +109,8 @@ pointer-events:auto;
 background:url("Flowers/card.png");
 background-size:cover;
 background-position:center;
-box-shadow:0 calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)) calc(15px + 30px*(var(--ia) - var(--ib))/var(--ic)) rgba(128,0,43,0.3);}
+border:calc(1px + 2px*(var(--ia) - var(--ib))/var(--ic)) solid rgba(255,255,255,0.5);
+box-shadow:0 0 calc(15px + 30px*(var(--ia) - var(--ib))/var(--ic)) rgba(240,137,157,0.5);}
 
 .card .image {
 position:absolute;
@@ -113,12 +128,12 @@ position:absolute;
 right:0;
 width:calc(140px + 280px*(var(--ia) - var(--ib))/var(--ic));
 height:100%;
-padding:calc(45px + 90px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic));
+padding:calc(40px + 80px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic)) calc(20px + 40px*(var(--ia) - var(--ib))/var(--ic));
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-gap:calc(8px + 16px*(var(--ia) - var(--ib))/var(--ic));
+gap:calc(10px + 20px*(var(--ia) - var(--ib))/var(--ic));
 opacity:0;
 transition:0.2s;}
 
@@ -146,8 +161,9 @@ font-family: "Tangerine", cursive;}
 
 .card .decoration {
 position:relative;
-width:calc(95px + 190px*(var(--ia) - var(--ib))/var(--ic));
-height:calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic));
+width:90%;
+height:auto;
+object-fit:cover;
 opacity:0;
 transition:0.3s;
 transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));}
@@ -162,6 +178,7 @@ font-family: "Cormorant Garamond", serif;}
 
 .card p {
 opacity:0;
+width:90%;
 line-height:calc(14px + 28px*(var(--ia) - var(--ib))/var(--ic));
 transform:translateY(calc(5px + 10px*(var(--ia) - var(--ib))/var(--ic)));}
 
@@ -266,11 +283,15 @@ animation:PopUp 0.5s 0.7s forwards;}
 
 <div class="main-container">
 
+
 <div class="container">
+
+<img class="part1" src="Flowers/part1.png">
+<img class="part2" src="Flowers/part2.png">
 
 <section class="wrapper">
 
-<ul class="carousel"></ul>
+<ul class="carousel"></ul> 
 
 </section>
 
