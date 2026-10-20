@@ -3,6 +3,39 @@ const Wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 const root = document.documentElement;
 
+function Resize() {
+
+ if(window.innerWidth > window.innerHeight){
+
+  root.style.setProperty("--ia", "100vw");
+  root.style.setProperty("--ib", "360px");
+  root.style.setProperty("--ic", "1200px");
+
+ }else{
+
+  root.style.setProperty("--ia", "100vw");
+  root.style.setProperty("--ib", "360px");
+  root.style.setProperty("--ic", "1200px");
+
+ }
+
+if(window.innerHeight < Wrapper.offsetHeight){
+
+  Container.classList.remove("state1");
+  Container.classList.add("state2");
+
+ }else{
+
+  Container.classList.remove("state2");
+  Container.classList.add("state1");
+
+}
+ 
+}
+
+Resize();
+window.addEventListener("resize",Resize);
+
 const slides = [
 
  {width: "70%", number: "S1 active", image: "Flowers/bouquet1.png", badge: "flex", title: "Pink Roses",  text: "Ftesh & Cheerful", description: "Delicate pink roses with a charming touch.", price: "$24"},
@@ -93,35 +126,3 @@ Cards.forEach((card, i) => {
     card.addEventListener("click", () => Slide(i));
 });
 
-function Resize() {
-
- if(window.innerWidth > window.innerHeight){
-
-  root.style.setProperty("--ia", "100vw");
-  root.style.setProperty("--ib", "360px");
-  root.style.setProperty("--ic", "1200px");
-
- }else{
-
-  root.style.setProperty("--ia", "100vw");
-  root.style.setProperty("--ib", "360px");
-  root.style.setProperty("--ic", "1200px");
-
- }
-
-if(window.innerHeight < Wrapper.offsetHeight){
-
-  Container.classList.remove("state1");
-  Container.classList.add("state2");
-
- }else{
-
-  Container.classList.remove("state2");
-  Container.classList.add("state1");
-
-}
- 
-}
-
-Resize();
-window.addEventListener("resize",Resize);
