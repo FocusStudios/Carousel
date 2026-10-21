@@ -19,7 +19,7 @@ function Resize() {
 
  }
 
-seTimeout(() => {
+setTimeout(() => {
  
 if(window.innerHeight < Wrapper.offsetHeight){
 
