@@ -23,12 +23,14 @@ if(window.innerHeight < Wrapper.offsetHeight){
 
   Container.classList.remove("state1");
   Container.classList.add("state2");
+ Container.style.background = "red";
 
  }else{
 
   Container.classList.remove("state2");
   Container.classList.add("state1");
-
+Container.style.background = "blue";
+ 
 }
  
 }
