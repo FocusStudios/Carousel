@@ -19,6 +19,8 @@ function Resize() {
 
  }
 
+requestAnimationFrame(() => {
+ 
 if(window.innerHeight < Wrapper.offsetHeight){
 
   Container.classList.remove("state1");
@@ -32,6 +34,8 @@ if(window.innerHeight < Wrapper.offsetHeight){
 Container.style.background = "blue";
  
 }
+
+});
  
 }
 
