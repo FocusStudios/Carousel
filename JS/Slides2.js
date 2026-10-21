@@ -19,7 +19,7 @@ function Resize() {
 
  }
 
-requestAnimationFrame(() => {
+seTimeout(() => {
  
 if(window.innerHeight < Wrapper.offsetHeight){
 
@@ -35,7 +35,7 @@ Container.style.background = "blue";
  
 }
 
-});
+},500);
  
 }
 
