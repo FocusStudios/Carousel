@@ -1,5 +1,4 @@
-const ShelfContainer = document.querySelector(".shelf-container");
-const ShelfWrapper = document.querySelector(".shelf-wrapper");
+const Container = document.querySelector(".container");
 const Wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 
@@ -26,28 +25,30 @@ slides.forEach(slide => {
 
       <section class="details">
 
-      <h2>${slide.title}</h2>
-      <h3>${slide.author}</h3>
+       <h2>${slide.title}</h2>
+       <h3>${slide.author}</h3>
 
-      <div class="line"></div>
+       <div class="line"></div>
 
-      <p>${slide.summary}</p>
+       <p>${slide.summary}</p>
 
-      <div class="button-container">
-       <button>
-        <span>Read Now</span>
-        <img class="arrow" src="Books/arrow.svg">
-       </button>
-      </div>
+       <div class="button-container">
+        <button>
+         <span>Read Now</span>
+         <img class="arrow" src="Books/arrow.svg">
+        </button>
+       </div>
 
       </section>
 
      </div>
+    
+     <img class="icon" src="${slide.icon}">
 
      <h1>${slide.category}</h1>
 
-     <img class="icon" src="${slide.icon}">
-     <img class="decoration" src="Books/decoration.svg">
+     <img class="decoration a" src="Books/decoration1.svg">
+     <img class="decoration b" src="Books/decoration2.svg">
 
     </li>
 
@@ -59,25 +60,26 @@ const Cards = document.querySelectorAll(".card");
 
 Cards.forEach(Card => {
 
-Card.addEventListener("click", (e) => {
+ Card.addEventListener("click", (e) => {
 
-if (e.target.closest(".card button")) return;
+  if (e.target.closest(".card button")) return;
 
-Cards.forEach(card => {
+    Cards.forEach(card => {
 
-if (card !== Card && card.classList.contains("active")) {
+     if (card !== Card && card.classList.contains("active")) {
 
-card.classList.remove("active");
+      card.classList.remove("active");
 
-}
+     }
+
+    });
+
+  Card.classList.toggle("active");
+
+ });
 
 });
 
-Card.classList.toggle("active");
-
-});
-
-});
 
 document.addEventListener("click", (e) => {
 
@@ -87,19 +89,22 @@ Cards.forEach(card => {card.classList.remove("active");});
 
 });
 
+
 function Resize() {
 
-if(window.innerHeight < ShelfWrapper.offsetHeight){
+ setTimeout(() => {
 
-ShelfContainer.classList.remove("state1");
-ShelfContainer.classList.add("state2");
+ if(window.innerHeight < Wrapper.offsetHeight){
 
-}else{
+     Container.style.height = `${Wrapper.offsetHeight}px`;
 
-ShelfContainer.classList.remove("state2");
-ShelfContainer.classList.add("state1");
+ }else{
 
-}
+     Container.style.height = "100%";
+
+ }
+
+},500);
 
 }
 
