@@ -60,21 +60,11 @@ const Cards = document.querySelectorAll(".card");
 
 Cards.forEach(Card => {
 
- Card.addEventListener("click", (e) => {
+ Card.addEventListener("click", () => {
 
-  if (e.target.closest(".card button")) return;
+    Cards.forEach(card => card.classList.remove("active"));
 
-    Cards.forEach(card => {
-
-     if (card !== Card && card.classList.contains("active")) {
-
-      card.classList.remove("active");
-
-     }
-
-    });
-
-  Card.classList.toggle("active");
+    Card.classList.add("active");
 
  });
 
