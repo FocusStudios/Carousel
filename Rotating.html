@@ -117,15 +117,15 @@ box-shadow:0 0 calc(20px + 5px*(var(--i1) - var(--i2))/var(--i3)) var(--shadow);
 
 .slider .slide:nth-child(1) .card, .slider .slide:nth-child(5) .card, .slider .slide:nth-child(9) .card {
 --border:rgba(0,102,255,0.8);
---Shadow:rgba(0,102,255,0.7);
---shadow:rgba(0,102,255,0.6);
+--Shadow:rgba(0,102,255,0.6);
+--shadow:rgba(0,102,255,0.7);
 --button:linear-gradient(to right, #45A5FE, #0066FF);
 --gradient:linear-gradient(to bottom right, #0066FF 30%, #42BEFF 50% ,#0066FF 70%);}
 
 .slider .slide:nth-child(2) .card, .slider .slide:nth-child(6) .card, .slider .slide:nth-child(10) .card {
 --border:rgba(155,40,238,0.8);
---Shadow:rgba(155,40,238,0.7);
---shadow:rgba(155,40,238,0.5);
+--Shadow:rgba(155,40,238,0.6);
+--shadow:rgba(155,40,238,0.7);
 --button:linear-gradient(to right, #BC4AFD,#7626EF);
 --gradient:linear-gradient(to bottom right, #9B28EE 30%, #CD94FF 50%,#9B28EE 70%);}
 
@@ -164,7 +164,7 @@ align-items:center;
 justify-content:center;
 gap:calc(5px + 1.25px*(var(--i1) - var(--i2))/var(--i3));
 outline:calc(0.8px + 0.2px*(var(--i1) - var(--i2))/var(--i3)) solid var(--shadow);
-box-shadow:0 0 calc(20px + 5px*(var(--i1) - var(--i2))/var(--i3)) var(--shadow);
+box-shadow:0 0 calc(20px + 5px*(var(--i1) - var(--i2))/var(--i3)) var(--Shadow);
 background:linear-gradient(to right, transparent, var(--shadow));}
 
 .badge .icon {
@@ -298,7 +298,7 @@ transition:0.3s;
 cursor:pointer;
 pointer-events:auto;
 background:var(--button);
-box-shadow:0 0 calc(10px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) var(--Shadow);}
+box-shadow:0 0 calc(10px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) var(--shadow);}
 
 footer .price button:active, .like:active {
 transform:scale(0.85);}
@@ -311,8 +311,8 @@ font-weight:700;}
 
 footer .price button .icon {
 position:relative;
-width:calc(8px + 2px*(var(--i1) - var(--i2))/var(--i3));
-height:calc(8px + 2px*(var(--i1) - var(--i2))/var(--i3));}
+width:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));
+height:calc(10px + 2px*(var(--i1) - var(--i2))/var(--i3));}
 
 @keyframes Rotate {
 0%{transform:perspective(4000px) rotateY(0deg);}
