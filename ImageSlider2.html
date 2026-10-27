@@ -432,29 +432,6 @@ transition:0.4s cubic-bezier(0,0,0.5,2) 2.7s;}
 opacity:1;
 transition:0.4s 3s;}
 
-.arrows {
-position:absolute;
-top:calc(115px + 115px*(var(--i1) - var(--i2))/var(--i3));
-width:calc(340px + 340px*(var(--i1) - var(--i2))/var(--i3));
-height:calc(40px + 40px*(var(--i1) - var(--i2))/var(--i3));
-display:flex;
-gap:calc(260px + 260px*(var(--i1) - var(--i2))/var(--i3));}
-
-.arrows img {
-position:relative;
-width:calc(40px + 40px*(var(--i1) - var(--i2))/var(--i3));
-height:calc(40px + 40px*(var(--i1) - var(--i2))/var(--i3));
-border-radius:50%;
-cursor:pointer;
-object-fit:cover;
-transition:0.3s;
-background:rgba(0,0,0,0.2);
-backdrop-filter:blur(10px);
-box-shadow:0 calc(3px + 3px*(var(--i1) - var(--i2))/var(--i3)) calc(6px + 6px*(var(--i1) - var(--i2))/var(--i3)) rgba(0,0,0,0.15);}
-
-.arrows img:active, button:active {
-transform:scale(0.8);}
-
 </style>
 
 </head>
@@ -499,14 +476,6 @@ transform:scale(0.8);}
 <ul class="wrapper"></ul>
 
 <ul class="slider"></ul>
-
-<section class="arrows">
-
- <img class="left" src="Courses/left-arrow.svg">
-
- <img class="right" src="Courses/right-arrow.svg">
-
-</section>
 
 </div>
 
