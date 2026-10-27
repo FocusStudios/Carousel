@@ -111,9 +111,9 @@ pages.forEach((page,index) => {
 
         <div class="profile-container">
 
-         <img src="${page.client1}">
-         <img src="${page.client2}">
-         <img src="${page.client3}">
+         <div class="image-container"><img src="${slide.client1}"></div>
+         <div class="image-container"><img src="${slide.client2}"></div>
+         <div class="image-container"><img src="${slide.client3}"></div>
 
         </div>
 
