@@ -2,8 +2,6 @@ const wrapper = document.querySelector(".wrapper");
 const MainContainer = document.querySelector(".Main-Container");
 const Container = document.querySelector(".container");
 const slider = document.querySelector(".slider");
-const left = document.querySelector(".left");
-const right = document.querySelector(".right");
 const root = document.documentElement;
 
 
