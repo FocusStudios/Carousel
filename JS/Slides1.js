@@ -86,6 +86,8 @@ function Resize() {
 
  }
 
+ setTimeout(() => {
+ 
  if(window.innerHeight < Wrapper.offsetHeight){
 
   Container.classList.remove("state1");
@@ -97,6 +99,8 @@ function Resize() {
   Container.classList.add("state1");
 
  }
+
+ },500);
 
 }
 
