@@ -154,22 +154,6 @@ updateTheme();
 
 });
 
-right.addEventListener("click",() => {
-
-let Slides = document.querySelectorAll(".slide");
-slider.appendChild(Slides[0]);
-updateTheme();
-
-});
-
-left.addEventListener("click",() => {
-
-let Slides = document.querySelectorAll(".slide");
-slider.prepend(Slides[Slides.length - 1]);
-updateTheme();
-
-});
-
 
 function Resize() {
 
@@ -187,6 +171,8 @@ root.style.setProperty("--i3","1200px");
 
 }
 
+ setTimeout(() => {
+    
 if(window.innerHeight < Container.offsetHeight){
 
  MainContainer.classList.remove("state1");
@@ -201,6 +187,8 @@ if(window.innerHeight < Container.offsetHeight){
 
 root.style.setProperty("--height", `${MainContainer.offsetHeight}px`);
 
+ },500);
+     
 }
 
 Resize();
