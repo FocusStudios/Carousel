@@ -52,24 +52,6 @@ slides.forEach(slide => {
 
 });
 
-const Cards = document.querySelectorAll(".card");
-
-function Slide(index) {
-
-    Cards.forEach((card, i) => {
-
-        card.classList.toggle("active", i === index);
-
-        card.style.width =
-            i === index ? "70%" :
-            (i === (index + 1) % Cards.length ? "18%" : "12%");
-    });
-}
-
-Cards.forEach((card, i) => {
-    card.addEventListener("click", () => Slide(i));
-});
-
 function Resize() {
 
  if(window.innerWidth > window.innerHeight){
@@ -106,3 +88,22 @@ function Resize() {
 
 Resize();
 window.addEventListener("resize",Resize);
+
+
+const Cards = document.querySelectorAll(".card");
+
+function Slide(index) {
+
+    Cards.forEach((card, i) => {
+
+        card.classList.toggle("active", i === index);
+
+        card.style.width =
+            i === index ? "70%" :
+            (i === (index + 1) % Cards.length ? "18%" : "12%");
+    });
+}
+
+Cards.forEach((card, i) => {
+    card.addEventListener("click", () => Slide(i));
+});
