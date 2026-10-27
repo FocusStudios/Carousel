@@ -2,48 +2,8 @@ const Wrapper = document.querySelector(".Wrapper");
 const MainContainer = document.querySelector(".Main-Container");
 const Container = document.querySelector(".container");
 const slider = document.querySelector(".slider");
-const left = document.querySelector(".left");
-const right = document.querySelector(".right");
 const root = document.documentElement;
 
-function Resize() {
-
-if(window.innerWidth > window.innerHeight){
-
-root.style.setProperty("--i1","100vw");
-root.style.setProperty("--i2","360px");
-root.style.setProperty("--i3","1200px");
-
-}else{
-
-root.style.setProperty("--i1","100vw");
-root.style.setProperty("--i2","360px");
-root.style.setProperty("--i3","1200px");
-
-}
-
- setTimeout(() => {
-
-if(window.innerHeight < Container.offsetHeight){
-
- MainContainer.classList.remove("state1");
- MainContainer.classList.add("state2");
-
-}else{
-
- MainContainer.classList.remove("state2");
- MainContainer.classList.add("state1");
-
-}
-
-root.style.setProperty("--height", `${MainContainer.offsetHeight}px`);
-
- },500);
-
-}
-
-Resize();
-window.addEventListener("resize",Resize);
 
 const hexagons = ["A", "B", "C", "D", "E", "F"];
 
@@ -205,26 +165,42 @@ updateTheme();
 
 });
 
-right.addEventListener("click",() => {
 
-let Slides = document.querySelectorAll(".slide");
-slider.appendChild(Slides[0]);
+function Resize() {
 
-let Pages = document.querySelectorAll(".page");
-wrapper.appendChild(Pages[0]);
+if(window.innerWidth > window.innerHeight){
 
-updateTheme();
+root.style.setProperty("--i1","100vw");
+root.style.setProperty("--i2","360px");
+root.style.setProperty("--i3","1200px");
 
-});
+}else{
 
-left.addEventListener("click",() => {
+root.style.setProperty("--i1","100vw");
+root.style.setProperty("--i2","360px");
+root.style.setProperty("--i3","1200px");
 
-let Slides = document.querySelectorAll(".slide");
-slider.prepend(Slides[Slides.length - 1]);
+}
 
-let Pages = document.querySelectorAll(".page");
-wrapper.prepend(Pages[Slides.length - 1]);
+ setTimeout(() => {
 
-updateTheme();
+if(window.innerHeight < Container.offsetHeight){
 
-});
+ MainContainer.classList.remove("state1");
+ MainContainer.classList.add("state2");
+
+}else{
+
+ MainContainer.classList.remove("state2");
+ MainContainer.classList.add("state1");
+
+}
+
+root.style.setProperty("--height", `${MainContainer.offsetHeight}px`);
+
+ },500);
+
+}
+
+Resize();
+window.addEventListener("resize",Resize);
