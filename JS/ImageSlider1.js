@@ -111,9 +111,9 @@ slides.forEach((slide,index) => {
 
         <div class="profile-container">
 
-         <img src="${slide.client1}">
-         <img src="${slide.client2}">
-         <img src="${slide.client3}">
+         <div class="image-container"><img src="${slide.client1}"></div>
+         <div class="image-container"><img src="${slide.client2}"></div>
+         <div class="image-container"><img src="${slide.client3}"></div>
 
         </div>
 
