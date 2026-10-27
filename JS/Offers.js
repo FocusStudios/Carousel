@@ -1,3 +1,4 @@
+const MainContainer = document.querySelector(".main-container");
 const Container = document.querySelector(".container");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
@@ -111,12 +112,11 @@ root.style.setProperty("--i2", "800px");
 
 if(window.innerHeight < Container.offsetHeight){
 
-Container.style.position = "absolute";
-Container.style.top = "0";
+MainContainer.style.height = `${Container.offsetHeight}px`;
 
 }else{
 
-Container.style.position = "relative";
+MainContainer.style.height = "100%";
 
 }
 
