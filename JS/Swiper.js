@@ -1,3 +1,4 @@
+const MainContainer = document.querySelector(".main-container");
 const wrapper = document.querySelector(".swiper-wrapper");
 const Container = document.querySelector(".Container");
 const root = document.documentElement;
@@ -88,15 +89,14 @@ root.style.setProperty("--ic", "1200px");
 
 if(window.innerHeight < Container.offsetHeight){
 
-Container.style.position = "absolute";
-Container.style.top = "0";
+MainContainer.style.height = `${Container.offsetHeight}px`;
 
 }else{
 
-Container.style.position = "relative";
+MainContainer.style.height = "100%";
 
 }
-
+ 
 }
 
 Resize();
