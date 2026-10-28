@@ -30,7 +30,7 @@ overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(#FFD885,#FFC74E);}
+background:#100C04;}
 
 :root {
 --gap:calc(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3));}
@@ -48,6 +48,30 @@ display:flex;
 align-items:center;
 justify-content:center;}
 
+.main-container {
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;}
+
+.background {
+position:absolute;
+width:100%;
+height:auto;
+object-fit:cover;}
+
+.background:nth-child(1) {
+top:0;
+left:0;}
+
+.background:nth-child(2) {
+right:0;
+bottom:0;}
+
 .Container {
 position:absolute;
 width:100%;
@@ -55,16 +79,7 @@ height:calc(var(--ratio1)*(500px + 500px*var(--ratio2)*(var(--i1) - var(--i2))/v
 display:flex;
 align-items:center;
 justify-content:center;}
-
-.circle {
-position:absolute;
-width:calc(var(--ratio1)*(400px + 400px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
-height:calc(var(--ratio1)*(400px + 400px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
-filter:blur(calc(var(--ratio1)*(30px + 30px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))));
-border-radius:50%;
-display:flex;
-background:radial-gradient(circle, #FFE794 50%, rgba(255,255,255,0.3) 100%);}
-
+  
 .swiper {
 position:relative;
 width:100%;
@@ -94,8 +109,8 @@ overflow:hidden;
 transition:0.5s;
 margin-left:var(--gap);
 border-radius:calc(var(--ratio1)*(12px + 12px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3)));
-outline:calc(var(--ratio1)*(1px + 1px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) solid rgba(255,255,255,0.3);
-box-shadow:0 calc(var(--ratio1)*(10px + 10px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) calc(var(--ratio1)*(20px + 20px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(0,0,0,0.3);}
+outline:calc(var(--ratio1)*(1px + 1px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) solid rgba(243,183,43,0.8);
+box-shadow:0 calc(var(--ratio1)*(30px + 20px*var(--ratio2)*(var(--i1) - var(--i2))/var(--i3))) rgba(243,183,43,0.5);}
 
 .swiper-slide:last-child {
 margin-right:var(--gap);}
@@ -305,7 +320,10 @@ box-shadow:0 calc(5px*var(--ratio1) + 5px*var(--ratio2)*(var(--i1) - var(--i2))/
 
 <div class="Wrapper">
 
-<div class="circle"></div>
+<div class="main-container">
+
+<img class="background" src="Offers/background1.png">
+<img class="background" src="Offers/background2.png">
 
 <div class="Container">
 
@@ -324,6 +342,8 @@ box-shadow:0 calc(5px*var(--ratio1) + 5px*var(--ratio2)*(var(--i1) - var(--i2))/
 <div class="swiper-pagination"></div>
 
 </section>
+
+</div>
 
 </div>
 
