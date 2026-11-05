@@ -4,14 +4,14 @@ const indicator = document.querySelector(".indicator");
 
 const slides = [
 
- {image: "Profiles/profile1.png", name: "Mark E.", display: "flex", job: "Front-End Developer", badge: "Profiles/pen.svg", text: "HTML, CSS, JS"},
- {image: "Profiles/profile2.png", name: "Parker K.", display: "none", job: "Full-Stack Developer", badge: "Profiles/node.svg", text: "Node.js, React.js"},
- {image: "Profiles/profile3.png", name: "Emma U.", display: "flex", job: "UI/UX Designer", badge: "Profiles/adobe.svg", text: "Adobe XD, Illustrator"},
- {image: "Profiles/profile4.png", name: "John M.", display: "flex", job: "Front-end Developer", badge: "Profiles/code.svg", text: "HTML, CSS, JS"},
- {image: "Profiles/profile5.png", name: "Samantha L.", display: "none", job: "Back-end Developer", badge: "Profiles/server.svg", text: "PHP, MySQL"},
- {image: "Profiles/profile6.png", name: "Diana S.", display: "none", job: "Back-end Developer", badge: "Profiles/java.svg", text: "JS, Node.js"},
- {image: "Profiles/profile7.png", name: "Adrian P.", display: "flex", job: "UI/UX Designer", badge: "Profiles/figma.svg", text: "Figma, Illustrator"},
- {image: "Profiles/profile8.png", name: "Talia A.", display: "flex", job: "Full-Stack Developer", badge: "Profiles/vue.svg", text: "Vue.js, React.js"},
+ {image: "Teams/profile1.png", name: "Mark E.", display: "flex", job: "Front-End Developer", badge: "Teams/pen.svg", text: "HTML, CSS, JS"},
+ {image: "Teams/profile2.png", name: "Parker K.", display: "none", job: "Full-Stack Developer", badge: "Teams/node.svg", text: "Node.js, React.js"},
+ {image: "Teams/profile3.png", name: "Emma U.", display: "flex", job: "UI/UX Designer", badge: "Teams/adobe.svg", text: "Adobe XD, Illustrator"},
+ {image: "Teams/profile4.png", name: "John M.", display: "flex", job: "Front-end Developer", badge: "Teams/code.svg", text: "HTML, CSS, JS"},
+ {image: "Teams/profile5.png", name: "Samantha L.", display: "none", job: "Back-end Developer", badge: "Teams/server.svg", text: "PHP, MySQL"},
+ {image: "Teams/profile6.png", name: "Diana S.", display: "none", job: "Back-end Developer", badge: "Teams/java.svg", text: "JS, Node.js"},
+ {image: "Teams/profile7.png", name: "Adrian P.", display: "flex", job: "UI/UX Designer", badge: "Teams/figma.svg", text: "Figma, Illustrator"},
+ {image: "Teams/profile8.png", name: "Talia A.", display: "flex", job: "Full-Stack Developer", badge: "Teams/vue.svg", text: "Vue.js, React.js"},
  
 ];
 
