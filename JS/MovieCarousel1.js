@@ -22,7 +22,7 @@ Carousels.forEach(Carousel => {
     const card = document.createElement("li");
     card.className = "card";
 
-    card.style.setProperty("--background",`url(Films/film${i}.png)`);
+    card.style.setProperty("--background",`url(Movies/movie${i}.png)`);
 
     carousel.appendChild(card);
 
