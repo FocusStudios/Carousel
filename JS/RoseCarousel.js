@@ -22,7 +22,7 @@ slides.forEach(slide => {
     <img class="image" src="${slide.image}">
 
     <div class="badge" style="display:${slide.badge};">
-     <img src="Flowers/Icon.svg">
+     <img src="Roses/Icon.svg">
      <span>New</span>
     </div>
 
