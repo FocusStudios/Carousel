@@ -30,7 +30,7 @@ slides.forEach(slide => {
 
       <div class="name">
        <h1>${slide.name}</h1>
-       <img src="Profiles/verified.svg" style="display:${slide.display};">
+       <img src="Teams/verified.svg" style="display:${slide.display};">
       </div>
 
       <h2>${slide.job}</h2>
