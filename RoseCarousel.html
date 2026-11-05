@@ -5,8 +5,9 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slides - Style 2</title>
+<title>Slides - Style 1</title>
 <link rel="icon" type="image/x-icon" href="Focus.svg">
+<link rel="stylesheet" href="CSS/Gentle.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
@@ -20,7 +21,7 @@ scroll-behavior:smooth;}
 * {
 margin:0;
 padding:0;
-transition:0.6s;
+transition:0.3s;
 box-sizing:border-box;}
 
 body {
@@ -51,7 +52,6 @@ overflow-x:hidden;}
 position:absolute;
 top:0;
 width:100%;
-height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -78,7 +78,7 @@ bottom:0;
 left:0;}
 
 .wrapper {
-position:absolute;
+position:relative;
 width:calc(360px + 720px*(var(--ia) - var(--ib))/var(--ic));
 height:calc(250px + 500px*(var(--ia) - var(--ib))/var(--ic));
 display:flex;
@@ -86,6 +86,7 @@ align-items:center;
 justify-content:center;}
 
 .carousel {
+position:relative;
 width:100%;
 height:calc(200px + 400px*(var(--ia) - var(--ib))/var(--ic));
 padding:0 calc(6px + 12px*(var(--ia) - var(--ib))/var(--ic));
@@ -98,6 +99,12 @@ gap:calc(6px + 6px*(var(--ia) - var(--ib))/var(--ic));}
 .card {
 position:relative;
 height:100%;
+--i1:70%;
+--i2:18%;
+--i3:12%;
+--i4:58%;
+--i5:52%;
+--i6:6%;
 list-style:none;
 border-radius:calc(10px + 20px*(var(--ia) - var(--ib))/var(--ic));
 overflow:hidden;
@@ -283,23 +290,22 @@ animation:PopUp 0.5s 0.7s forwards;}
 
 <div class="main-container">
 
-
 <div class="container">
 
 <img class="part1" src="Flowers/part1.png">
 <img class="part2" src="Flowers/part2.png">
 
-<section class="wrapper">
+<div class="wrapper">
 
 <ul class="carousel"></ul> 
 
-</section>
-
 </div>
 
 </div>
 
-<script src="JS/Slides1.js"></script>
+</div>
+
+<script src="JS/RoseCarousel.js"></script>
 
 </body>
 
