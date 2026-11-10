@@ -68,7 +68,7 @@ align-items:center;}
 
 .part1, .part2 {
 position:absolute;
-width:100vw;
+width:calc(100vw - 50vw*(var(--i1) - 360px)/1200px);
 height:auto;
 object-fit:cover;}
 
@@ -290,9 +290,6 @@ animation:PopUp 0.4s 0.4s forwards;}
 100%{transform:scale(1);opacity:1;}}
 
 @media screen and (min-width:800px) {
-
-.part1, .part2 {
-width:calc(100vw - 60vw*(var(--i1) - var(--i2))/var(--i2));}
 
 .container {
 height:calc(400px + 400px*(var(--i1) - var(--i2))/var(--i2));}
