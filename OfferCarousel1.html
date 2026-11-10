@@ -60,17 +60,19 @@ justify-content:center;
 align-items:center;
 overflow:hidden;}
 
-.background {
+.part1, .part2 {
 position:absolute;
-width:100%;
+width:min(calc(100vw - 50vw*(100vw - 360px)/440px),50vw);
 height:auto;
 object-fit:cover;}
 
-.background:nth-child(1) {
-top:0;}
+.part1 {
+top:0;
+left:0;}
 
-.background:nth-child(2) {
-bottom:0;}
+.part2 {
+bottom:0;
+right:0;}
   
 .Container {
 position:absolute;
@@ -309,8 +311,8 @@ box-shadow:0 calc(5px + 2.5px*(var(--i1) - var(--i2))/var(--i3)) calc(5px + 2.5p
 
 <div class="main-container">
 
-<img class="background" src="Offers/background1.png">
-<img class="background" src="Offers/background2.png">
+<img class="part1" src="Offers/background1.png">
+<img class="part2" src="Offers/background2.png">
 
 <div class="Container">
 
