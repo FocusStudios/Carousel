@@ -108,5 +108,5 @@ function Resize() {
 
 }
 
-Resize();
-window.addEventListener("resize",Resize);
+//Resize();
+//window.addEventListener("resize",Resize);
