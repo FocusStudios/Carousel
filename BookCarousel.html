@@ -72,9 +72,19 @@ overflow-y:hidden;
 pointer-events:none;
 transition:0.4s cubic-bezier(0.5,0,0.5,1);}
 
+.slogan {
+font-weight:800;
+font-size:2.5rem;
+color:#402000;}
+
+.book {
+position:relative;
+width:80px;
+height:80px;}
+
 .carousel {
 position:relative;
-padding:10px 10px 80px 10px;
+padding:10px;
 display:flex;
 align-items:end;
 justify-content:center;
@@ -388,10 +398,12 @@ width:calc(300px + 300px*(100vw - 650px)/950px);}
 
 <section class="container">
 
-<img class="background" src="Books/background.png">
-
 <div class="wrapper">
 
+<img class="book" src="Books/book.png">
+
+<h1 class="slogan">Discover Your Next Favorite</h1>
+ 
 <ul class="carousel"></ul>
 
 </div>
