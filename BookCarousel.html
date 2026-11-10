@@ -58,6 +58,7 @@ overflow:hidden;}
 .wrapper {
 position:relative;
 height:400px;
+padding:10px 0;
 display:flex;
 align-items:center;
 justify-content:start;
@@ -102,7 +103,7 @@ align-items:center;
 justify-content:center;
 pointer-events:auto;
 cursor:pointer;
-box-shadow:0 3px 8px rgba(100,35,0,0.6);
+box-shadow:0 2px 8px rgba(100,35,0,0.5);
 transition:0.4s cubic-bezier(0.5,0,0.5,1);
 background:linear-gradient(var(--i) 60%, #000 100%);}
 
@@ -283,7 +284,8 @@ transform:scale(0.85);}
 @media screen and (min-width:650px) {
 
 .wrapper {
-height:calc(400px + 400px*(100vw - 650px)/950px);}
+height:calc(400px + 400px*(100vw - 650px)/950px);
+padding:calc(10px + 10px*(100vw - 650px)/950px) 0;}
 
 .slogan {
 font-size:calc(1.2rem + 1.2rem*(100vw - 650px)/950px);}
@@ -300,7 +302,7 @@ gap:calc(10px + 10px*(100vw - 650px)/950px);}
 width:calc(60px + 60px*(100vw - 650px)/950px);
 height:calc(200px + 200px*(100vw - 650px)/950px);
 border-radius:calc(5px + 5px*(100vw - 650px)/950px);
-box-shadow:0 calc(3px + 3px*(100vw - 650px)/950px) calc(8px + 8px*(100vw - 650px)/950px) rgba(100,35,0,0.6);}
+box-shadow:0 calc(2px + 2px*(100vw - 650px)/950px) calc(8px + 8px*(100vw - 650px)/950px) rgba(100,35,0,0.5);}
 
 .card:nth-child(2), .card:nth-child(4) {
 height:calc(250px + 250px*(100vw - 650px)/950px);}
