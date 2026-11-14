@@ -88,7 +88,7 @@ slides.forEach((slide,index) => {
                 
                 <button>
                     <span>Shop Now</span>
-                    <img class="icon" src="Devices/bag.svg">
+                    <img class="icon" src="Products/bag.svg">
                 </button>
 
             </section>
