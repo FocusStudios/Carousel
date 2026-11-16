@@ -1,3 +1,4 @@
+const MainWrapper = document.querySelector(".main-wrapper");
 const Container = document.querySelector(".container");
 const Wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
@@ -94,13 +95,13 @@ function Resize() {
 
  setTimeout(() => {
 
- if(window.innerHeight < Wrapper.offsetHeight){
+ if(window.innerHeight < Container.offsetHeight){
 
-     Container.style.height = `${Wrapper.offsetHeight}px`;
+     MainWrapper.style.height = `${Container.offsetHeight}px`;
 
  }else{
 
-     Container.style.height = "100%";
+     MainWrapper.style.height = "100%";
 
  }
 
@@ -108,5 +109,5 @@ function Resize() {
 
 }
 
-//Resize();
-//window.addEventListener("resize",Resize);
+Resize();
+window.addEventListener("resize",Resize);
