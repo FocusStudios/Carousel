@@ -64,6 +64,24 @@ align-items:center;
 justify-content:center;
 flex-direction:column;}
 
+.part1, .part2, .part3 {
+position:absolute;
+width:calc(100px + 100px*(var(--ia) - var(--ib))/var(--ic));
+height:auto;
+object-fit:cover;}
+
+.part1 {
+top:0;
+left:0;}
+
+.part2 {
+bottom:0;
+right:0;}
+
+.part3 {
+bottom:0;
+left:0;}
+
 .slogan {
 font-weight:800;
 font-size:1.2rem;
@@ -523,6 +541,10 @@ width:calc(300px + 300px*(100vw - 650px)/950px);}
 <div class="main-wrapper">
 
 <section class="container">
+
+<img class="part1" src="Books/part1.png">
+<img class="part2" src="Books/part2.png">
+<img class="part3" src="Books/part3.png">
 
 <img class="book-icon" src="Books/book.png">
 
