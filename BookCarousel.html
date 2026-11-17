@@ -290,6 +290,118 @@ transition:0.5s 0.7s;}
 .card button:active {
 transform:scale(0.85);}
 
+@media screen and (max-width:650px) {
+
+.container {
+height:calc(420px*100vw/360px);
+gap:calc(10px*100vw/360px);}
+ 
+.slogan {
+font-size:calc(1.2rem*100vw/360px);}
+
+.book {
+width:calc(50px*100vw/360px);
+height:calc(50px*100vw/360px);}
+
+.wrapper {
+height:calc(340px*100vw/360px);
+margin-top:calc(-10px*100vw/360px);}
+
+.carousel {
+padding:calc(10px*100vw/360px);
+gap:calc(10px*100vw/360px);}
+
+.card {
+width:calc(60px*100vw/360px);
+height:calc(200px*100vw/360px);
+border-radius:calc(5px*100vw/360px);
+box-shadow:0 calc(2px*100vw/360px) calc(8px*100vw/360px) rgba(100,35,0,0.5);}
+
+.card:nth-child(2), .card:nth-child(4) {
+height:calc(250px*100vw/360px);}
+
+.card:nth-child(3) {
+height:calc(300px*100vw/360px);}
+
+.card .details-container {
+height:calc(220px*100vw/360px);}
+
+.card .details-container {
+width:calc(100% - (10px*100vw/360px));
+height:calc(100% - (10px*100vw/360px));
+border-radius:calc(4px*100vw/360px);
+border:calc(0.5px*100vw/360px) solid rgba(255,255,255,0.3);}
+
+.card .book {
+width:calc(140px*100vw/360px);
+height:calc(180px*100vw/360px);
+transform:translateY(calc(20px*100vw/360px));
+filter:drop-shadow(calc(-1px*100vw/360px) calc(1px*100vw/360px) calc(4px*100vw/360px) rgba(255,255,255,0.3));}
+
+.card .details {
+width:calc(150px*100vw/360px);
+gap:calc(10px*100vw/360px);}
+
+.card h1 {
+top:calc(70px*100vw/360px);
+font-size:calc(0.85rem*100vw/360px);
+letter-spacing:calc(5px*100vw/360px);
+height:calc(100% - (90px*100vw/360px));
+text-shadow:calc(2px*100vw/360px) calc(2px*100vw/360px) calc(2px*100vw/360px) rgba(0,0,0,0.7);}
+
+.card .line {
+height:calc(0.5px*100vw/360px);
+border-radius:calc(1px*100vw/360px);
+box-shadow:0 calc(1px*100vw/360px) calc(2px*100vw/360px) rgba(0,0,0,0.5);}
+
+.card h2, .card h3 {
+font-size:calc(0.9rem*100vw/360px);
+text-shadow:calc(2px*100vw/360px) calc(2px*100vw/360px) calc(2px*100vw/360px) rgba(0,0,0,0.5);}
+
+.card h3 {
+font-size:calc(0.7rem*100vw/360px);}
+
+.card p {
+font-size:calc(0.6rem*100vw/360px);
+line-height:calc(15px*100vw/360px);}
+
+.card .button-container {
+margin-top:calc(10px*100vw/360px);
+transform:translateY(calc(10px*100vw/360px));}
+
+.card button {
+padding:calc(5px*100vw/360px);
+border-radius:calc(20px*100vw/360px);
+gap:calc(10px*100vw/360px);
+border:calc(1px*100vw/360px) solid rgba(255,255,255,0.5);}
+
+.card button span {
+font-size:calc(0.6rem*100vw/360px);
+padding-left:calc(10px*100vw/360px);}
+
+.card button .arrow {
+width:calc(15px*100vw/360px);
+height:calc(15px*100vw/360px);}
+
+.card .icon {
+top:calc(20px*100vw/360px);
+width:calc(30px*100vw/360px);
+height:calc(30px*100vw/360px);}
+
+.card .decoration {
+height:calc(6px*100vw/360px);}
+
+.card .a {
+top:calc(2px*100vw/360px);}
+
+.card .b {
+bottom:calc(2px*100vw/360px);}
+
+.card.active {
+width:calc(300px*100vw/360px);}
+
+}
+
 @media screen and (min-width:650px) {
 
 .container {
@@ -381,7 +493,6 @@ font-size:calc(0.6rem + 0.6rem*(100vw - 650px)/950px);
 padding-left:calc(10px + 10px*(100vw - 650px)/950px);}
 
 .card button .arrow {
-position:relative;
 width:calc(15px + 15px*(100vw - 650px)/950px);
 height:calc(15px + 15px*(100vw - 650px)/950px);}
 
